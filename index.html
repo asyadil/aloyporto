@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ali's Portofolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullpage.js/3.1.2/fullpage.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullpage.js/3.1.2/fullpage.min.js"></script>
+  </head>
+
+  <body class="text-white opacity-100 transition-all duration-500 ease-out">
+    <!-- Loading Screen -->
+    <div
+      class="pyramid-loader loader w-[100vw] h-[100vh] bg-grey justify-center items-center"
+    >
+      <div class="wrapper">
+        <span class="side side1"></span>
+        <span class="side side2"></span>
+        <span class="side side3"></span>
+        <span class="side side4"></span>
+        <span class="shadow"></span>
+      </div>
+    </div>
+    <main>
+      <nav
+        class="shadow-lg z-50 shadow-cyan-50/20 font-bold w-fit bg-[#21E6C1] rounded-full opacity-0 transition-opacity duration-700 ease-out"
+      >
+        <div
+          class="container px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 flex justify-between items-center gap-2 sm:gap-3 md:gap-4 lg:gap-5"
+        >
+          <ul
+            class="flex items-center h-[1.5rem] text-[#071e3d83] gap-2 sm:gap-3 md:gap-4 lg:gap-6 text-xs sm:text-sm md:text-base"
+          >
+            <li>
+              <a
+                href="#home"
+                class="nav_item active active:text-white hover:text-[#071E3D]"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#about"
+                class="nav_item active:text-white hover:text-[#071E3D]"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#projects"
+                class="nav_item active:text-white hover:text-[#071E3D]"
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="nav_item active:text-white hover:text-[#071E3D]"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <div
+                id="ini"
+                class="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 md:px-6 lg:px-[1.5rem] py-[0.5rem] rounded-full border-[1px] border-[#00000080] text-[#071E3D]"
+              >
+                <span
+                  class="hidden sm:inline text-xs md:text-sm change-theme-text"
+                  >Change theme</span
+                >
+                <label
+                  class="group border-[1px] rounded-full border-[#00000080] relative inline-flex cursor-pointer items-center transform scale-[1.4] origin-center"
+                >
+                  <input class="peer sr-only" type="checkbox" />
+                  <div
+                    class="relative h-4 w-8 rounded-full bg-[#003cff] transition-all duration-500 after:absolute after:left-0.5 after:top-0.5 after:h-3 after:w-3 after:rounded-full after:bg-white after:transition-all after:duration-500 peer-checked:bg-[#ff0000] peer-checked:after:translate-x-4 hover:after:scale-95 active:after:scale-90"
+                  >
+                    <span
+                      class="absolute inset-1 rounded-full bg-white/10"
+                    ></span>
+                    <span
+                      class="absolute inset-0 rounded-full opacity-0 transition-opacity duration-500 peer-checked:animate-glow peer-checked:opacity-100"
+                    ></span>
+                  </div>
+                </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div id="home"></div>
+      <div class="flex">
+        <div
+          class="flex bg-red justify-center mx-4 sm:mx-6 md:mx-[4rem] lg:mx-[7.5rem] mt-12 sm:mt-16 md:mt-[12rem] lg:mt-[15rem] p-4 sm:p-6 md:p-8 lg:p-10"
+        >
+          <div class="d-inline-block">
+            <h4
+              id="home-text"
+              class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-semi-bold text-white opacity-0 transition-opacity duration-750 ease-out"
+            >
+              Hey there!<br />u can call me<br />
+              <span
+                id="ali-text"
+                class="d-inline-block text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black w-fit font-bold bg-[#21E6C1] px-4 sm:px-6 md:px-8 lg:px-10 py-sm-0 rounded opacity-0 transition-opacity duration-750 ease-out"
+              >
+                Ali
+              </span>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <!-- End Home Section -->
+
+      <!-- About Section -->
+      <div
+        id="about"
+        class="flex justify-center px-4 sm:px-6 md:px-8 lg:px-16 min-h-screen pb-32 scroll-mt-20"
+      >
+        <div
+          class="w-full max-w-6xl mt-12 sm:mt-16 md:mt-[12rem] lg:mt-[15rem]"
+        >
+          <!-- About Text -->
+          <div
+            class="text-right w-full sm:w-full md:w-[60%] lg:w-[50%] ml-auto"
+          >
+            <h4
+              class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white"
+            >
+              About Me
+            </h4>
+            <p
+              class="text-xs sm:text-sm md:text-base lg:text-lg font-normal text-[#fffffff5] mt-4"
+            >
+              Hi! Im Ali, I cant eat stones or bricks, but I can eat what you
+              cook for me (if you want to cook for me). Im a learner, and Im
+              happy with every step I take toward my goal. Im excited to see
+              where this journey takes me. You know, I ate something behind
+              you... you dont understand? Wow, me neither, I dont know what I
+              write (eat). Whatever it is, you must be wondering why Im telling
+              you this I just want to say that Im friendly and open to new
+              connections. Lets connect!
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- End About Section -->
+
+      <!-- Projects Section -->
+      <div
+        id="projects"
+        class="flex flex-col items-center justify-center px-[12.5%] min-h-screen py-20 scroll-mt-20"
+      >
+        <div class="w-[87.5%] max-w-4xl scale-[88.5%]">
+          <!-- Title -->
+          <h4
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-10 sm:mb-12 md:mb-16"
+          >
+            My Projects
+          </h4>
+
+          <!-- Cards Grid Container -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-5 md:gap-6"
+          >
+            <!-- Card 1 - Top Left -->
+            <div
+              class="project-card backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-5 sm:p-6 shadow-lg"
+            >
+              <h5 class="text-lg sm:text-xl font-bold text-white mb-2">
+                <em>Tahajjee</em>
+              </h5>
+              <p class="text-xs sm:text-sm text-white/80 mb-4">
+                I am learning how to spell the Arabic letters in the Quran.
+              </p>
+              <a
+                href="projects/tahajji.html"
+                class="project-btn inline-block px-5 py-2 bg-[#21E6C1] text-[#071E3D] text-sm font-bold rounded-full hover:opacity-90 transition-opacity"
+              >
+                View Project
+              </a>
+            </div>
+
+            <!-- Card 2 - Top Middle -->
+            <div
+              class="project-card backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-5 sm:p-6 shadow-lg"
+            >
+              <h5 class="text-lg sm:text-xl font-bold text-white mb-2">
+                Tahzizh Al-Quran
+              </h5>
+              <p class="text-xs sm:text-sm text-white/80 mb-4">
+                My juz 30 Hifz Recitation Video, click the button for watching
+                the video.
+              </p>
+              <a
+                href="projects/tahfizh.html"
+                class="project-btn inline-block px-5 py-2 bg-[#21E6C1] text-[#071E3D] text-sm font-bold rounded-full hover:opacity-90 transition-opacity"
+              >
+                View Project
+              </a>
+            </div>
+
+            <!-- Card 3 - Right side spanning 2 rows -->
+            <div
+              class="project-card md:row-span-2 backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-5 sm:p-6 shadow-lg flex flex-col"
+            >
+              <h5 class="text-lg sm:text-xl font-bold text-white mb-2">
+                Arabic Projects
+              </h5>
+              <p class="text-xs sm:text-sm text-white/80 mb-4 flex-grow">
+                Here are some of my Arabic projects, including speaking, vlog,
+                writing, reading, and a concise tafsir on suurah An-Nasr.
+              </p>
+              <a
+                href="projects/arabic.html"
+                class="project-btn inline-block w-fit px-5 py-2 bg-[#21E6C1] text-[#071E3D] text-sm font-bold rounded-full hover:opacity-90 transition-opacity"
+              >
+                View Project
+              </a>
+            </div>
+
+            <!-- Card 4 - Bottom Left spanning 2 columns -->
+            <div
+              class="project-card md:col-span-2 backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-5 sm:p-6 shadow-lg"
+            >
+              <h5 class="text-lg sm:text-xl font-bold text-white mb-2">
+                Programming Projects
+              </h5>
+              <p class="text-xs sm:text-sm text-white/80 mb-4">
+                I've creatd a CLI program using Python that using pokemon public
+                API to display various information about different pokemon.
+              </p>
+              <a
+                href="projects/it.html"
+                class="project-btn inline-block px-5 py-2 bg-[#21E6C1] text-[#071E3D] text-sm font-bold rounded-full hover:opacity-90 transition-opacity"
+              >
+                View Project
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Projects Section -->
+
+      <!-- Contact Section -->
+      <div
+        id="contact"
+        class="flex flex-col items-center justify-center px-[12.5%] min-h-screen py-20 scroll-mt-20"
+      >
+        <div class="w-[87.5%] max-w-4xl scale-[85%]">
+          <!-- Title -->
+          <h4
+            class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-10 sm:mb-12 md:mb-16"
+          >
+            Get In Touch
+          </h4>
+
+          <div class="flex flex-col lg:flex-row gap-8 lg:gap-16">
+            <!-- Contact Info -->
+            <div class="flex-1">
+              <p class="text-sm sm:text-base lg:text-lg text-white/80 mb-8">
+                Have a project in mind or just want to say hello? Feel free to
+                reach out! I'm always open to discussing new opportunities and
+                ideas.
+              </p>
+
+              <!-- Contact Details -->
+              <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="contact-icon w-12 h-12 rounded-full bg-[#21E6C1] flex items-center justify-center transition-colors"
+                  >
+                    <svg
+                      class="w-5 h-5 text-[#071E3D]"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                      ></path>
+                      <path
+                        d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-white/60 text-sm">Email</p>
+                    <p class="text-white font-medium">
+                      asyadilaliramdani08@gmail.com
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <div
+                    class="contact-icon w-12 h-12 rounded-full bg-[#21E6C1] flex items-center justify-center transition-colors"
+                  >
+                    <svg
+                      class="w-5 h-5 text-[#071E3D]"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-white/60 text-sm">Location</p>
+                    <p class="text-white font-medium">Indonesia</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Social Links -->
+              <div class="flex gap-4 mt-8">
+                <!-- GitHub -->
+                <a
+                  target="_blank"
+                  href="https://github.com/asyadil/"
+                  class="social-link w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#21E6C1] hover:border-[#21E6C1] transition-all group"
+                >
+                  <svg
+                    class="w-5 h-5 text-white group-hover:text-[#071E3D]"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                    />
+                  </svg>
+                </a>
+                <!-- Quora -->
+                <a
+                  target="_blank"
+                  href="https://id.quora.com/profile/Asyadil-Ali-Ramdani"
+                  class="social-link w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#21E6C1] hover:border-[#21E6C1] transition-all group"
+                >
+                  <svg
+                    class="w-5 h-5 text-white group-hover:text-[#071E3D]"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12.738 16.988c-.753-1.086-1.594-2.24-2.803-2.24-.378 0-.783.11-1.073.326l-.453-.851c.535-.417 1.17-.692 2.019-.692 1.618 0 2.548.882 3.46 2.159.326-.716.493-1.604.493-2.672 0-3.17-1.438-5.273-4.162-5.273-2.727 0-4.181 2.103-4.181 5.273 0 3.169 1.455 5.273 4.181 5.273.607 0 1.15-.098 1.648-.289l.871 1.606c-.752.289-1.626.45-2.519.45C6.27 20.058 3 17.188 3 12.018c0-5.168 3.271-8.04 7.219-8.04 3.947 0 7.218 2.872 7.218 8.04 0 1.877-.475 3.467-1.283 4.693.37.501.773.907 1.266.907.645 0 1.105-.453 1.285-1.387l1.097.326C19.456 18.606 18.32 20 16.454 20c-1.257 0-2.169-.637-3.05-1.755l-.666-1.257z"
+                    />
+                  </svg>
+                </a>
+                <!-- X (Twitter) -->
+                <a
+                  target="_blank"
+                  href="https://x.com/as_yadil"
+                  class="social-link w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#21E6C1] hover:border-[#21E6C1] transition-all group"
+                >
+                  <svg
+                    class="w-5 h-5 text-white group-hover:text-[#071E3D]"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                    />
+                  </svg>
+                </a>
+                <!-- Instagram -->
+                <a
+                  target="_blank"
+                  href="https://www.instagram.com/as.yadil/"
+                  class="social-link w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#21E6C1] hover:border-[#21E6C1] transition-all group"
+                >
+                  <svg
+                    class="w-5 h-5 text-white group-hover:text-[#071E3D]"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="flex-1">
+              <form class="space-y-6">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    class="w-full px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-[#21E6C1] transition-colors"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    placeholder="Your Email"
+                    class="w-full px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-[#21E6C1] transition-colors"
+                  />
+                </div>
+                <div>
+                  <textarea
+                    rows="5"
+                    placeholder="Your Message"
+                    class="w-full px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-[#21E6C1] transition-colors resize-none"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="contact-btn w-full px-8 py-4 bg-[#21E6C1] text-[#071E3D] font-bold rounded-full hover:opacity-90 transition-opacity"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Contact Section -->
+
+      <!-- Footer -->
+      <footer class="w-full py-8 text-center bg-[#202020] mt-10">
+        <p class="text-white text-sm">
+          ©2025 Asyadil Ali. All rights reserved.
+        </p>
+      </footer>
+      <!-- End Footer -->
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="script.js"></script>
+    <!-- End Scripts -->
+  </body>
+</html>

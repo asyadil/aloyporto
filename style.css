@@ -1,0 +1,224 @@
+/* ==================== Base Styles ==================== */
+html {
+  scroll-behavior: smooth;
+  caret-color: transparent;
+}
+
+body {
+  background-color: #202020;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+/* ==================== Loading Animation (Pyramid) ==================== */
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+}
+
+.pyramid-loader {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: block;
+  transform-style: preserve-3d;
+  transform: rotateX(-20deg);
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.pyramid-loader .wrapper .side {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transform-origin: center top;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.pyramid-loader .wrapper .side1 {
+  background: conic-gradient(#2bdeac, #f028fd, #d8cce6, #2f2585);
+  transform: rotateZ(-30deg) rotateY(90deg);
+}
+
+.pyramid-loader .wrapper .side2 {
+  background: conic-gradient(#2f2585, #d8cce6, #f028fd, #2bdeac);
+  transform: rotateZ(30deg) rotateY(90deg);
+}
+
+.pyramid-loader .wrapper .side3 {
+  background: conic-gradient(#2f2585, #d8cce6, #f028fd, #2bdeac);
+  transform: rotateX(30deg);
+}
+
+.pyramid-loader .wrapper .side4 {
+  background: conic-gradient(#2bdeac, #f028fd, #d8cce6, #2f2585);
+  transform: rotateX(-30deg);
+}
+
+.pyramid-loader .wrapper .shadow {
+  width: 60px;
+  height: 60px;
+  background: #8b5ad5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transform: rotateX(90deg) translateZ(-40px);
+  filter: blur(12px);
+}
+
+/* ==================== Navigation Styles ==================== */
+.nav_item {
+  cursor: pointer;
+}
+
+.active {
+  color: #071e3d;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.active2 {
+  color: #1f0701;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.change-theme-text {
+  color: #071e3d;
+  transition: color 200ms ease;
+}
+
+body.bg2 .change-theme-text {
+  color: #1f0701;
+}
+
+/* ==================== Background Themes ==================== */
+.bg1 {
+  background-image: url("lib/bg.webp");
+}
+
+.bg2 {
+  background-image: url("lib/bg2.webp");
+}
+
+/* ==================== Layout Sections ==================== */
+main {
+  display: none;
+  color: #030f1f;
+}
+
+nav {
+  position: fixed;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  z-index: 9999;
+  white-space: nowrap;
+}
+
+@media (max-width: 639px) {
+  nav {
+    top: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  nav .container {
+    max-width: none !important;
+  }
+
+  nav ul {
+    height: auto !important;
+  }
+
+  label.group {
+    transform: scale(1) !important;
+  }
+}
+
+/* Sections - Responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    overflow-y: scroll;
+  }
+}
+
+/* ==================== Project Cards Theme ==================== */
+.project-btn {
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+body.bg2 .project-btn {
+  background-color: #ffc800;
+  color: #1f0701;
+}
+
+/* ==================== Contact Section Theme ==================== */
+.contact-btn {
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+body.bg2 .contact-btn {
+  background-color: #ffc800;
+  color: #1f0701;
+}
+
+/* Contact Icon Theme */
+.contact-icon {
+  transition: background-color 300ms ease;
+}
+
+body.bg2 .contact-icon {
+  background-color: #ffc800;
+}
+
+/* Social Links Hover Theme */
+.social-link {
+  transition: all 300ms ease;
+}
+
+body.bg2 .social-link:hover {
+  background-color: #ffc800;
+  border-color: #ffc800;
+}
+
+body.bg2 .social-link:hover svg {
+  color: #1f0701;
+}
+
+/* Form Focus Theme */
+body.bg2 #contact input:focus,
+body.bg2 #contact textarea:focus {
+  border-color: #ffc800;
+}
