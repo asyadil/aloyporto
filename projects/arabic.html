@@ -3,7 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ali's Portofolio</title>
+    <meta
+      name="description"
+      content="Arabic learning projects by Ali - writing, conversation, speaking, vlog, reading, and Tafsir on suurah An-Nasr"
+    />
+    <meta
+      name="keywords"
+      content="Arabic, writing, conversation, speaking, vlog, reading, Tafsir, Islamic studies"
+    />
+    <meta name="author" content="Asyadil Ali Ramdani" />
+    <meta name="theme-color" content="#21E6C1" />
+    <meta property="og:title" content="Arabic Projects - Ali's Portfolio" />
+    <meta
+      property="og:description"
+      content="Explore Arabic learning and Islamic projects"
+    />
+    <meta property="og:type" content="website" />
+    <link
+      rel="canonical"
+      href="https://aloyporto.github.io/projects/arabic.html"
+    />
+    <link rel="icon" type="image/webp" href="../lib/icon_tab.webp" />
+    <title>
+      Arabic Projects - Writing, Speaking & Tafsir | Ali's Portfolio
+    </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../style.css" />
     <link
@@ -16,6 +39,9 @@
   <body class="text-white opacity-100 transition-all duration-500 ease-out">
     <!-- Loading Screen -->
     <div
+      aria-busy="true"
+      role="status"
+      aria-label="Loading"
       class="pyramid-loader loader w-[100vw] h-[100vh] bg-grey justify-center items-center"
     >
       <div class="wrapper">
@@ -28,6 +54,7 @@
     </div>
     <main>
       <nav
+        aria-label="Main navigation"
         class="shadow-lg z-50 shadow-cyan-50/20 font-bold w-fit bg-[#21E6C1] rounded-full opacity-0 transition-opacity duration-700 ease-out"
       >
         <div
@@ -95,12 +122,14 @@
       </nav>
 
       <!-- Cards Section -->
-      <div class="flex flex-col items-center justify-center min-h-screen py-20">
+      <section
+        class="flex flex-col items-center justify-center min-h-screen py-20"
+      >
         <div
           class="grid grid-cols-3 gap-6 justify-center w-full px-8 max-w-5xl mx-auto"
         >
           <!-- Card 1 -->
-          <div
+          <article
             class="project-card backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-6 shadow-lg w-80"
           >
             <h5 class="text-lg font-bold text-white mb-2">Arabic Writing</h5>
@@ -111,10 +140,10 @@
             >
               View
             </a>
-          </div>
+          </article>
 
           <!-- Card 2 -->
-          <div
+          <article
             class="project-card backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-6 shadow-lg w-80"
           >
             <h5 class="text-lg font-bold text-white mb-2">
@@ -129,10 +158,10 @@
             >
               View
             </a>
-          </div>
+          </article>
 
           <!-- Card 3 -->
-          <div
+          <article
             class="project-card backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-6 shadow-lg w-80"
           >
             <h5 class="text-lg font-bold text-white mb-2">Arabic Speaking</h5>
@@ -145,10 +174,10 @@
             >
               View
             </a>
-          </div>
+          </article>
 
           <!-- Card 4 -->
-          <div
+          <article
             class="project-card backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-6 shadow-lg w-80"
           >
             <h5 class="text-lg font-bold text-white mb-2">Arabic Vlog</h5>
@@ -161,10 +190,10 @@
             >
               View
             </a>
-          </div>
+          </article>
 
           <!-- Card 5 -->
-          <div
+          <article
             class="project-card backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-6 shadow-lg w-80"
           >
             <h5 class="text-lg font-bold text-white mb-2">Arabic Reading</h5>
@@ -178,10 +207,10 @@
             >
               View
             </a>
-          </div>
+          </article>
 
           <!-- Card 6 -->
-          <div
+          <article
             class="project-card backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-6 shadow-lg w-80"
           >
             <h5 class="text-lg font-bold text-white mb-2">
@@ -196,9 +225,9 @@
             >
               View
             </a>
-          </div>
+          </article>
         </div>
-      </div>
+      </section>
       <!-- End Cards Section -->
 
       <!-- Footer -->

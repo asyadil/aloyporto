@@ -3,7 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ali's Portofolio</title>
+    <meta
+      name="description"
+      content="Python programming project using Pokemon API - Learn about programming concepts with practical examples"
+    />
+    <meta
+      name="keywords"
+      content="programming, Python, API, web development, programming projects, Pokemon API"
+    />
+    <meta name="author" content="Asyadil Ali Ramdani" />
+    <meta name="theme-color" content="#21E6C1" />
+    <meta
+      property="og:title"
+      content="Programming Projects - Ali's Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Explore Python programming projects and technical work"
+    />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://aloyporto.github.io/projects/it.html" />
+    <link rel="icon" type="image/webp" href="../lib/icon_tab.webp" />
+    <title>Programming Projects - Python & API | Ali's Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../style.css" />
     <link
@@ -16,6 +37,9 @@
   <body class="text-white opacity-100 transition-all duration-500 ease-out">
     <!-- Loading Screen -->
     <div
+      aria-busy="true"
+      role="status"
+      aria-label="Loading"
       class="pyramid-loader loader w-[100vw] h-[100vh] bg-grey justify-center items-center"
     >
       <div class="wrapper">
@@ -28,6 +52,7 @@
     </div>
     <main>
       <nav
+        aria-label="Main navigation"
         class="shadow-lg z-50 shadow-cyan-50/20 font-bold w-fit bg-[#21E6C1] rounded-full opacity-0 transition-opacity duration-700 ease-out"
       >
         <div
@@ -80,10 +105,12 @@
       </nav>
 
       <!-- Cards Section -->
-      <div class="flex flex-col items-center justify-center min-h-screen py-20">
+      <section
+        class="flex flex-col items-center justify-center min-h-screen py-20"
+      >
         <div class="flex justify-center w-full px-8">
           <!-- Single Card -->
-          <div
+          <article
             class="project-card backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-10 shadow-lg w-full max-w-2xl"
           >
             <h5 class="text-2xl font-bold text-white mb-4">
@@ -102,9 +129,9 @@
             >
               View Project
             </a>
-          </div>
+          </article>
         </div>
-      </div>
+      </section>
       <!-- End Cards Section -->
 
       <!-- Footer -->

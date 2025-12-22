@@ -3,7 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ali's Portofolio</title>
+    <meta
+      name="description"
+      content="Tahajji - Arabic alphabet spelling learning project with videos on Al-Qoidah As-Samiriyah and Quran pronunciation"
+    />
+    <meta
+      name="keywords"
+      content="Tahajji, Arabic alphabet, Qoidah Samiriyah, Quran spelling, Al-Fatihah, Islamic learning"
+    />
+    <meta name="author" content="Asyadil Ali Ramdani" />
+    <meta name="theme-color" content="#21E6C1" />
+    <meta
+      property="og:title"
+      content="Tahajji Projects - Arabic Spelling | Ali's Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Learn Arabic alphabet spelling through video demonstrations"
+    />
+    <meta property="og:type" content="website" />
+    <link
+      rel="canonical"
+      href="https://aloyporto.github.io/projects/tahajji.html"
+    />
+    <link rel="icon" type="image/webp" href="../lib/icon_tab.webp" />
+    <title>Tahajji - Arabic Spelling & Pronunciation | Ali's Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../style.css" />
     <link
@@ -16,6 +40,9 @@
   <body class="text-white opacity-100 transition-all duration-500 ease-out">
     <!-- Loading Screen -->
     <div
+      aria-busy="true"
+      role="status"
+      aria-label="Loading"
       class="pyramid-loader loader w-[100vw] h-[100vh] bg-grey justify-center items-center"
     >
       <div class="wrapper">
@@ -28,6 +55,7 @@
     </div>
     <main>
       <nav
+        aria-label="Main navigation"
         class="shadow-lg z-50 shadow-cyan-50/20 font-bold w-fit bg-[#21E6C1] rounded-full opacity-0 transition-opacity duration-700 ease-out"
       >
         <div
@@ -80,10 +108,12 @@
       </nav>
 
       <!-- Cards Section -->
-      <div class="flex flex-col items-center justify-center min-h-screen py-20">
+      <section
+        class="flex flex-col items-center justify-center min-h-screen py-20"
+      >
         <div class="flex gap-8 justify-center w-full px-8 scale-[120%]">
           <!-- Card 1 -->
-          <div
+          <article
             class="project-card backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-8 shadow-lg w-80"
           >
             <h5 class="text-xl font-bold text-white mb-3">
@@ -99,10 +129,10 @@
             >
               View More
             </a>
-          </div>
+          </article>
 
           <!-- Card 2 -->
-          <div
+          <article
             class="project-card backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-8 shadow-lg w-80"
           >
             <h5 class="text-xl font-bold text-white mb-3">
@@ -121,9 +151,9 @@
             >
               View More
             </a>
-          </div>
+          </article>
         </div>
-      </div>
+      </section>
       <!-- End Cards Section -->
 
       <!-- Footer -->
