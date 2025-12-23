@@ -104,14 +104,14 @@ body {
 body.bg1 #ini,
 body.bg1 #ini-mobile,
 body.bg1 .ini-bg,
-nav-bg {
+body.bg1 .nav-bg {
   background-color: #21E6C1 !important;
 }
 
 body.bg2 #ini,
 body.bg2 #ini-mobile,
 body.bg2 .ini-bg,
-nav-bg {
+body.bg2 .nav-bg {
   background-color: #ffc800 !important;
 }
 
