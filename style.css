@@ -438,6 +438,7 @@ nav {
 
   /* Contact section adjustments */
   #contact {
+    caret-color: black;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
@@ -568,3 +569,4 @@ body.bg2 #contact input:focus,
 body.bg2 #contact textarea:focus {
   border-color: #ffc800;
 }
+
