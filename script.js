@@ -325,4 +325,35 @@ $(document).ready(function () {
 
   // Set initial active nav based on current scroll position
   updateActiveNav();
+
+  // ==================== formsubmitiing ====================
+  const form = document.getElementById('myForm');
+  const status = document.getElementById('status');
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // cegah redirect
+  
+    const formData = new FormData(form);
+  
+    fetch('https://formsubmit.co/asyadilaliramdani08@gmail.com', {
+      method: 'POST',
+      body: formData,
+    })
+    .then(response => {
+      if (response.ok) {
+        status.innerText = "Pesan berhasil dikirim!";
+        form.reset();
+      } else {
+        status.innerText = "Terjadi kesalahan, coba lagi.";
+      }
+    })
+    .catch(error => {
+      status.innerText = "Terjadi kesalahan, coba lagi.";
+    });
+  });
+
+  
 });
+
+
+
