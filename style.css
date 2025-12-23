@@ -245,7 +245,6 @@ body.bg2 .mobile-menu a {
 }
 
 .mobile-menu a:hover {
-  transform: translateX(5px);
   filter: brightness(110%);
 }
 
@@ -266,8 +265,8 @@ body.bg2 .mobile-menu a {
   nav {
     width: auto !important;
     top: 0.75rem;
-    left: 1rem;
-    right: 1rem;
+    left: 2rem; /* Increased margin */
+    right: 2rem; /* Increased margin */
     margin-inline: 0;
     background: transparent !important;
     box-shadow: none !important;
