@@ -308,8 +308,7 @@ $(document).ready(function () {
       // Disable button dan ubah text
       submitButton.disabled = true;
       submitButton.textContent = 'Sending...';
-      submitButton.style.opacity = '0.6';
-      submitButton.style.cursor = 'not-allowed';
+      submitButton.classList.add('submitting');
       
       const formData = new FormData(contactForm);
       
@@ -324,26 +323,24 @@ $(document).ready(function () {
         if (response.ok) {
           // Success
           submitButton.textContent = 'Message Sent! ✓';
-          submitButton.style.backgroundColor = '#10b981';
+          submitButton.classList.remove('submitting');
+          submitButton.classList.add('success');
           contactForm.reset();
           
           setTimeout(() => {
             submitButton.textContent = originalText;
-            submitButton.style.backgroundColor = '';
-            submitButton.style.opacity = '';
-            submitButton.style.cursor = '';
+            submitButton.classList.remove('success');
             submitButton.disabled = false;
           }, 3000);
         } else {
           response.json().then(data => {
             submitButton.textContent = 'Error! Please try again';
-            submitButton.style.backgroundColor = '#ef4444';
+            submitButton.classList.remove('submitting');
+            submitButton.classList.add('error');
             
             setTimeout(() => {
               submitButton.textContent = originalText;
-              submitButton.style.backgroundColor = '';
-              submitButton.style.opacity = '';
-              submitButton.style.cursor = '';
+              submitButton.classList.remove('error');
               submitButton.disabled = false;
             }, 3000);
           });
@@ -351,13 +348,12 @@ $(document).ready(function () {
       })
       .catch(error => {
         submitButton.textContent = 'Network Error! Try again';
-        submitButton.style.backgroundColor = '#ef4444';
+        submitButton.classList.remove('submitting');
+        submitButton.classList.add('error');
         
         setTimeout(() => {
           submitButton.textContent = originalText;
-          submitButton.style.backgroundColor = '';
-          submitButton.style.opacity = '';
-          submitButton.style.cursor = '';
+          submitButton.classList.remove('error');
           submitButton.disabled = false;
         }, 3000);
       });
