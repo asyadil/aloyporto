@@ -127,16 +127,17 @@ body.bg2 .change-theme-text {
 .mobile-nav-toggle {
   display: none;
   cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 0.375rem;
+  padding: 0.75rem;
+  border-radius: 1.5rem;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-nav-toggle span {
   display: block;
   width: 24px;
-  height: 2px;
-  margin: 5px 0;
+  height: 2.5px;
+  margin: 4px 0;
   transition: all 0.3s ease;
   border-radius: 2px;
 }
@@ -198,6 +199,7 @@ body.bg2 .change-theme-text {
 @media (max-width: 768px) {
   nav .container {
     justify-content: space-between !important;
+    width: 100%;
   }
 
   .desktop-nav-items {
@@ -209,16 +211,32 @@ body.bg2 .change-theme-text {
   }
 
   nav {
-    width: calc(100% - 2rem) !important;
+    width: auto !important;
     top: 0.75rem;
     left: 1rem;
     right: 1rem;
     margin-inline: 0;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
   }
 
+  nav .container {
+    padding: 0 !important;
+    gap: 1rem !important;
+    background: transparent !important;
+  }
+
+  /* Hamburger button with its own background */
+  .mobile-nav-toggle {
+    background-color: inherit;
+  }
+
+  /* Theme switcher with its own background */
   #ini {
     margin-left: auto;
-    padding: 0.5rem 0.75rem !important;
+    padding: 0.75rem !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   #ini .change-theme-text {
@@ -240,12 +258,29 @@ body.bg2 .change-theme-text {
 }
 
 /* Hamburger colors based on theme */
+body.bg1 .mobile-nav-toggle {
+  background-color: #21E6C1;
+}
+
 body.bg1 .mobile-nav-toggle span {
   background-color: #071e3d;
 }
 
+body.bg2 .mobile-nav-toggle {
+  background-color: #ffc800;
+}
+
 body.bg2 .mobile-nav-toggle span {
   background-color: #1f0701;
+}
+
+/* Theme switcher background */
+body.bg1 #ini {
+  background-color: #21E6C1;
+}
+
+body.bg2 #ini {
+  background-color: #ffc800;
 }
 
 body.bg1 .mobile-menu {
