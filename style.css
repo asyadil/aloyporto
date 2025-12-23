@@ -123,6 +123,113 @@ body.bg2 .change-theme-text {
   color: #1f0701;
 }
 
+/* ==================== Mobile Navigation ==================== */
+.mobile-nav-toggle {
+  display: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.mobile-nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.mobile-nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.5rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 50;
+}
+
+.mobile-menu.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu ul {
+  flex-direction: column;
+  gap: 0 !important;
+  padding: 0.5rem 0;
+}
+
+.mobile-menu li {
+  width: 100%;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  nav .container {
+    justify-content: space-between !important;
+  }
+
+  .desktop-nav-items {
+    display: none !important;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  nav {
+    width: calc(100% - 2rem) !important;
+    top: 0.75rem;
+    left: 1rem;
+    right: 1rem;
+    margin-inline: 0;
+  }
+
+  #ini {
+    margin-left: auto;
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  #ini .change-theme-text {
+    display: none !important;
+  }
+
+  label.group {
+    transform: scale(1.2) !important;
+  }
+}
+
 /* ==================== Background Themes ==================== */
 .bg1 {
   background-image: url("lib/bg.webp");
@@ -130,6 +237,41 @@ body.bg2 .change-theme-text {
 
 .bg2 {
   background-image: url("lib/bg2.webp");
+}
+
+/* Hamburger colors based on theme */
+body.bg1 .mobile-nav-toggle span {
+  background-color: #071e3d;
+}
+
+body.bg2 .mobile-nav-toggle span {
+  background-color: #1f0701;
+}
+
+body.bg1 .mobile-menu {
+  background-color: #21E6C1;
+  box-shadow: 0 10px 25px rgba(33, 230, 193, 0.3);
+}
+
+body.bg2 .mobile-menu {
+  background-color: #ffc800;
+  box-shadow: 0 10px 25px rgba(255, 200, 0, 0.3);
+}
+
+body.bg1 .mobile-menu a {
+  color: #071e3d83;
+}
+
+body.bg2 .mobile-menu a {
+  color: #1f070183;
+}
+
+body.bg1 .mobile-menu a.active {
+  color: #071e3d;
+}
+
+body.bg2 .mobile-menu a.active2 {
+  color: #1f0701;
 }
 
 /* ==================== Layout Sections ==================== */
@@ -148,29 +290,140 @@ nav {
   white-space: nowrap;
 }
 
-@media (max-width: 639px) {
+/* ==================== Mobile Section Heights ==================== */
+@media (max-width: 768px) {
+  body {
+    overflow-y: scroll;
+  }
+
+  /* Home section full height on mobile */
+  section:first-of-type + section {
+    min-height: 100vh !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* About section full height on mobile */
+  #about {
+    min-height: 100vh !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+
+  #about > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 0 !important;
+  }
+
+  #about .text-right {
+    text-align: center !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  /* Projects section adjustments */
+  #projects {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  #projects > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: scale(1) !important;
+  }
+
+  #projects h4 {
+    text-align: center;
+    margin-bottom: 2rem !important;
+  }
+
+  /* Contact section adjustments */
+  #contact {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  #contact > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: scale(1) !important;
+  }
+
+  #contact h4 {
+    text-align: center;
+  }
+
+  /* Home text center on mobile */
+  section:first-of-type + section > div {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center;
+  }
+
+  section:first-of-type + section h4 {
+    text-align: center;
+  }
+}
+
+/* ==================== Tablet Adjustments ==================== */
+@media (min-width: 769px) and (max-width: 1024px) {
   nav {
-    top: 0.5rem;
-    padding: 0.5rem;
+    width: fit-content;
+    max-width: calc(100% - 4rem);
   }
 
-  nav .container {
-    max-width: none !important;
+  #projects > div,
+  #contact > div {
+    transform: scale(0.95) !important;
+  }
+}
+
+/* ==================== Project Cards Responsive ==================== */
+@media (max-width: 768px) {
+  /* Arabic.html cards */
+  .grid-cols-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
   }
 
-  nav ul {
-    height: auto !important;
+  article.project-card {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
-  label.group {
+  /* IT.html and Tahajji.html cards */
+  .flex.gap-8 {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Scale adjustments */
+  .scale-\[120\%\] {
+    transform: scale(1) !important;
+  }
+
+  .scale-\[88\.5\%\] {
+    transform: scale(1) !important;
+  }
+
+  .scale-\[85\%\] {
     transform: scale(1) !important;
   }
 }
 
-/* Sections - Responsive adjustments */
-@media (max-width: 768px) {
-  body {
-    overflow-y: scroll;
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Tablet: 2 columns for arabic.html */
+  section .grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  article.project-card {
+    width: 100% !important;
   }
 }
 
