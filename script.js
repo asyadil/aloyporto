@@ -225,9 +225,16 @@ $(document).ready(function () {
 
   // ==================== Click Navigation ====================
   function handleNavClick(e) {
+    const href = $(this).attr("href");
+
+    // If it's an external link (not starting with #), allow normal navigation
+    if (href && !href.startsWith("#")) {
+      return; // Let browser handle the navigation naturally
+    }
+
+    // Otherwise, prevent default and scroll to section
     e.preventDefault();
 
-    const href = $(this).attr("href");
     const $section = $(href);
 
     if (!$section.length) return;
