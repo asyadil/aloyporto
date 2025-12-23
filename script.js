@@ -1,6 +1,10 @@
 // ==================== Page Initialization ====================
 window.onload = function () {
   const body = document.querySelector("body");
+  const mainElement = document.querySelector("main");
+  const loaderElement = document.querySelector(".loader");
+  const navElement = document.querySelector("nav");
+
   body.classList.remove("opacity-0");
   body.classList.add("opacity-100");
 
@@ -12,24 +16,29 @@ window.onload = function () {
   body.classList.add(bgClass);
   body.style.backgroundImage = "none";
 
+  // Hide loader and show main immediately
+  if (loaderElement) {
+    loaderElement.style.display = "none";
+  }
+  if (mainElement) {
+    mainElement.style.display = "block";
+  }
+
+  // Restore background-image
+  body.style.backgroundImage = "";
+
+  // Animate navbar fade in quickly
   setTimeout(function () {
-    document.querySelector(".loader").style.display = "none";
-    document.querySelector("main").style.display = "block";
+    if (navElement) {
+      navElement.classList.add("opacity-100");
+    }
 
-    // Restore background-image
-    body.style.backgroundImage = "";
+    const homeText = document.querySelector("#home-text");
+    const aliText = document.querySelector("#ali-text");
 
-    // Animate navbar and home text fade in
-    setTimeout(function () {
-      const nav = document.querySelector("nav");
-      const homeText = document.querySelector("#home-text");
-      const aliText = document.querySelector("#ali-text");
-
-      if (nav) nav.classList.add("opacity-100");
-      if (homeText) homeText.classList.add("opacity-100");
-      if (aliText) aliText.classList.add("opacity-100");
-    }, 100);
-  }, 900);
+    if (homeText) homeText.classList.add("opacity-100");
+    if (aliText) aliText.classList.add("opacity-100");
+  }, 100);
 };
 
 $(document).ready(function () {
@@ -225,16 +234,9 @@ $(document).ready(function () {
 
   // ==================== Click Navigation ====================
   function handleNavClick(e) {
-    const href = $(this).attr("href");
-
-    // If it's an external link (not starting with #), allow normal navigation
-    if (href && !href.startsWith("#")) {
-      return; // Let browser handle the navigation naturally
-    }
-
-    // Otherwise, prevent default and scroll to section
     e.preventDefault();
 
+    const href = $(this).attr("href");
     const $section = $(href);
 
     if (!$section.length) return;
@@ -262,7 +264,15 @@ $(document).ready(function () {
   // ==================== Event Listeners ====================
   $themeToggleDesktop.on("change", handleThemeToggle);
   $themeToggleMobile.on("change", handleThemeToggle);
-  $navItems.on("click", handleNavClick);
+
+  // Only attach click handler to internal anchor links (#), not external links
+  $navItems.on("click", function (e) {
+    const href = $(this).attr("href");
+    // Only handle if it's an internal anchor link
+    if (href && href.startsWith("#")) {
+      handleNavClick.call(this, e);
+    }
+  });
 
   $(window).on("scroll", function () {
     if (!state.isScrolling) {
