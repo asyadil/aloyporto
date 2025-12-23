@@ -8,11 +8,9 @@ function initializePage() {
   body.classList.remove("opacity-0");
   body.classList.add("opacity-100");
 
-  // Get saved theme
   const savedTheme = localStorage.getItem("theme");
   const bgClass = savedTheme === "dark" ? "bg2" : "bg1";
 
-  // Apply bg class if not already applied
   if (!body.classList.contains(bgClass)) {
     const otherBgClass = bgClass === "bg1" ? "bg2" : "bg1";
     body.classList.remove(otherBgClass);
@@ -21,7 +19,6 @@ function initializePage() {
 
   body.style.backgroundImage = "none";
 
-  // Hide loader and show main immediately
   if (loaderElement) {
     loaderElement.style.display = "none";
   }
@@ -29,10 +26,8 @@ function initializePage() {
     mainElement.style.display = "block";
   }
 
-  // Restore background-image
   body.style.backgroundImage = "";
 
-  // Animate navbar fade in quickly
   setTimeout(function () {
     if (navElement) {
       navElement.classList.remove("opacity-0");
@@ -53,13 +48,8 @@ function initializePage() {
   }, 100);
 }
 
-// Initialize on page load
 window.addEventListener("load", initializePage);
-
-// Also initialize on page show (for back button navigation)
 window.addEventListener("pageshow", initializePage);
-
-// Also initialize when DOM is ready (for regular navigation)
 document.addEventListener("DOMContentLoaded", initializePage);
 
 $(document).ready(function () {
@@ -101,7 +91,6 @@ $(document).ready(function () {
   const aliTextElement = document.querySelector("#ali-text");
 
   // ==================== Immediate Visibility Fix ====================
-  // Ensure navbar and home elements are visible immediately when page loads
   if (navElement) {
     navElement.classList.remove("opacity-0");
     navElement.classList.add("opacity-100");
@@ -131,18 +120,15 @@ $(document).ready(function () {
     $mobileMenu.removeClass("show");
   }
 
-  // Mobile toggle click
   $mobileToggle.on("click", function (e) {
     e.stopPropagation();
     toggleMobileMenu();
   });
 
-  // Close menu when clicking nav items
   $mobileMenu.find(".nav_item").on("click", function () {
     closeMobileMenu();
   });
 
-  // Close menu when clicking outside
   $(document).on("click", function (e) {
     if (state.isMobileMenuOpen && !$(e.target).closest("nav").length) {
       closeMobileMenu();
@@ -171,11 +157,8 @@ $(document).ready(function () {
     const theme = getTheme(isDark);
     const prevTheme = getPrevTheme(isDark);
 
-    // Remove previous bg class and add new one - this triggers all CSS rules via body.bg1/bg2
     $body.removeClass(prevTheme.bgClass).addClass(theme.bgClass);
 
-    // Update CURRENTLY active nav item to use correct active class for the new theme
-    // Find which nav item has the old active class
     const currentlyActive = $navItems.filter("." + prevTheme.navActiveClass);
     if (currentlyActive.length > 0) {
       currentlyActive
@@ -183,35 +166,26 @@ $(document).ready(function () {
         .addClass(theme.navActiveClass);
     }
 
-    // Swap Ali background color
     const $aliH4 = $("#ali-text");
     if ($aliH4.length) {
       $aliH4.removeClass(prevTheme.aliH4Bg).addClass(theme.aliH4Bg);
     }
-
-    // CSS rules handle all color transitions via body.bg1 / body.bg2
-    // No need to swap hover classes - CSS handles via body selectors
   }
 
   function handleThemeToggle(e) {
-    // Determine which checkbox was clicked
     const $clickedCheckbox = $(e.target);
     const isChecked = $clickedCheckbox.is(":checked");
     state.isDarkMode = isChecked;
 
-    // Sync both checkboxes
     $themeToggleDesktop.prop("checked", isChecked);
     $themeToggleMobile.prop("checked", isChecked);
 
-    // Save theme to localStorage
     localStorage.setItem("theme", state.isDarkMode ? "dark" : "light");
 
-    // Fade out
     navElement?.classList.remove("opacity-100");
     homeTextElement?.classList.remove("opacity-100");
     aliTextElement?.classList.remove("opacity-100");
 
-    // Apply theme and fade in
     setTimeout(function () {
       applyTheme(state.isDarkMode);
       navElement?.classList.add("opacity-100");
@@ -301,10 +275,8 @@ $(document).ready(function () {
   $themeToggleDesktop.on("change", handleThemeToggle);
   $themeToggleMobile.on("change", handleThemeToggle);
 
-  // Only attach click handler to internal anchor links (#), not external links
   $navItems.on("click", function (e) {
     const href = $(this).attr("href");
-    // Only handle if it's an internal anchor link
     if (href && href.startsWith("#")) {
       handleNavClick.call(this, e);
     }
@@ -320,40 +292,75 @@ $(document).ready(function () {
   $themeToggleDesktop.prop("checked", state.isDarkMode);
   $themeToggleMobile.prop("checked", state.isDarkMode);
 
-  // ALWAYS apply theme (light OR dark) to properly initialize all styles
   applyTheme(state.isDarkMode);
-
-  // Set initial active nav based on current scroll position
   updateActiveNav();
 
-  // ==================== formsubmitiing ====================
-  const form = document.getElementById('myForm');
-  const status = document.getElementById('status');
-  
-  form.addEventListener('submit', function(e) {
-    e.preventDefault(); // cegah redirect
-  
-    const formData = new FormData(form);
-  
-    fetch('https://formsubmit.co/asyadilaliramdani08@gmail.com', {
-      method: 'POST',
-      body: formData,
-    })
-    .then(response => {
-      if (response.ok) {
-        status.innerText = "Pesan berhasil dikirim!";
-        form.reset();
-      } else {
-        status.innerText = "Terjadi kesalahan, coba lagi.";
-      }
-    })
-    .catch(error => {
-      status.innerText = "Terjadi kesalahan, coba lagi.";
+  // ==================== Formspree Form Handling ====================
+  const contactForm = document.getElementById('myForm');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitButton = contactForm.querySelector('.contact-btn');
+      const originalText = submitButton.textContent;
+      
+      // Disable button dan ubah text
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+      submitButton.style.opacity = '0.6';
+      submitButton.style.cursor = 'not-allowed';
+      
+      const formData = new FormData(contactForm);
+      
+      fetch('https://formspree.io/f/xjgbjkkz', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Success
+          submitButton.textContent = 'Message Sent! ✓';
+          submitButton.style.backgroundColor = '#10b981';
+          contactForm.reset();
+          
+          setTimeout(() => {
+            submitButton.textContent = originalText;
+            submitButton.style.backgroundColor = '';
+            submitButton.style.opacity = '';
+            submitButton.style.cursor = '';
+            submitButton.disabled = false;
+          }, 3000);
+        } else {
+          response.json().then(data => {
+            submitButton.textContent = 'Error! Please try again';
+            submitButton.style.backgroundColor = '#ef4444';
+            
+            setTimeout(() => {
+              submitButton.textContent = originalText;
+              submitButton.style.backgroundColor = '';
+              submitButton.style.opacity = '';
+              submitButton.style.cursor = '';
+              submitButton.disabled = false;
+            }, 3000);
+          });
+        }
+      })
+      .catch(error => {
+        submitButton.textContent = 'Network Error! Try again';
+        submitButton.style.backgroundColor = '#ef4444';
+        
+        setTimeout(() => {
+          submitButton.textContent = originalText;
+          submitButton.style.backgroundColor = '';
+          submitButton.style.opacity = '';
+          submitButton.style.cursor = '';
+          submitButton.disabled = false;
+        }, 3000);
+      });
     });
-  });
-
-  
+  }
 });
-
-
-
