@@ -58,20 +58,24 @@
         <div
           class="container px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 flex justify-between items-center gap-2 sm:gap-3 md:gap-4 lg:gap-5"
         >
+          <div class="mobile-nav-toggle md:hidden">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+      
           <ul
-            class="flex items-center h-[1.5rem] text-[#071e3d83] gap-2 sm:gap-3 md:gap-4 lg:gap-6 text-xs sm:text-sm md:text-base"
+            class="desktop-nav-items flex items-center h-[1.5rem] text-[#071e3d83] gap-2 sm:gap-3 md:gap-4 lg:gap-6 text-xs sm:text-sm md:text-base"
           >
             <li>
               <a
                 href="../index.html"
-                onclick="if(location.pathname.includes('arabic')) { location.href='../index.html'; return false; }"
                 class="nav_item active:text-white hover:text-[#071E3D]"
                 >Home</a
               >
             </li>
             <li>
-              <a"
-                class="nav_item active active:text-white hover:text-[#071E3D]"
+              <a class="nav_item active active:text-white hover:text-[#071E3D]"
                 >Arabic</a
               >
             </li>
@@ -91,15 +95,49 @@
                   <div
                     class="relative h-4 w-8 rounded-full bg-[#003cff] transition-all duration-500 after:absolute after:left-0.5 after:top-0.5 after:h-3 after:w-3 after:rounded-full after:bg-white after:transition-all after:duration-500 peer-checked:bg-[#ff0000] peer-checked:after:translate-x-4 hover:after:scale-95 active:after:scale-90"
                   >
-                    <span
-                      class="absolute inset-1 rounded-full bg-white/10"
-                    ></span>
+                    <span class="absolute inset-1 rounded-full bg-white/10"></span>
                     <span
                       class="absolute inset-0 rounded-full opacity-0 transition-opacity duration-500 peer-checked:animate-glow peer-checked:opacity-100"
                     ></span>
                   </div>
                 </label>
               </div>
+            </li>
+          </ul>
+      
+          <div
+            id="ini-mobile"
+            class="md:hidden flex items-center gap-2 px-3 py-[0.75rem] rounded-[1.5rem] border-[1px] border-[#00000080] text-[#071E3D]"
+          >
+            <label
+              class="group border-[1px] rounded-full border-[#00000080] relative inline-flex cursor-pointer items-center transform scale-[1.2] origin-center"
+            >
+              <input class="peer sr-only" type="checkbox" />
+              <div
+                class="relative h-4 w-8 rounded-full bg-[#003cff] transition-all duration-500 after:absolute after:left-0.5 after:top-0.5 after:h-3 after:w-3 after:rounded-full after:bg-white after:transition-all after:duration-500 peer-checked:bg-[#ff0000] peer-checked:after:translate-x-4 hover:after:scale-95 active:after:scale-90"
+              >
+                <span class="absolute inset-1 rounded-full bg-white/10"></span>
+                <span
+                  class="absolute inset-0 rounded-full opacity-0 transition-opacity duration-500 peer-checked:animate-glow peer-checked:opacity-100"
+                ></span>
+              </div>
+            </label>
+          </div>
+        </div>
+      
+        <div class="mobile-menu">
+          <ul class="flex items-center text-[#071e3d83] text-sm">
+            <li>
+              <a
+                href="../index.html"
+                class="nav_item active:text-white hover:text-[#071E3D]"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a class="nav_item active active:text-white hover:text-[#071E3D]"
+                >Arabic</a
+              >
             </li>
           </ul>
         </div>
@@ -229,3 +267,4 @@
     <!-- End Scripts -->
   </body>
 </html>
+
