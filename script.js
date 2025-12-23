@@ -44,7 +44,6 @@ $(document).ready(function () {
     light: {
       bgClass: "bg1",
       navBg: "bg-[#21E6C1]",
-      navShadow: "shadow-cyan-50/20",
       navActiveClass: "active",
       navHoverColor: "hover:text-[#071E3D]",
       aliH4Bg: "bg-[#21E6C1]",
@@ -52,7 +51,6 @@ $(document).ready(function () {
     dark: {
       bgClass: "bg2",
       navBg: "bg-[#ffc800]",
-      navShadow: "shadow-black-50/20",
       navActiveClass: "active2",
       navHoverColor: "hover:text-[#1f0701]",
       aliH4Bg: "bg-[#ffc800]",
@@ -132,21 +130,35 @@ $(document).ready(function () {
     const theme = getTheme(isDark);
     const prevTheme = getPrevTheme(isDark);
 
-    swapClass($body, prevTheme.bgClass, theme.bgClass);
-    swapClass($nav, prevTheme.navBg, theme.navBg);
-    swapClass($nav, prevTheme.navShadow, theme.navShadow);
+    // Remove previous bg class and add new one - this triggers all CSS rules
+    $body.removeClass(prevTheme.bgClass).addClass(theme.bgClass);
 
-    const $currentActive = $navItems.filter("." + prevTheme.navActiveClass);
-    if ($currentActive.length) {
-      swapClass($currentActive, prevTheme.navActiveClass, theme.navActiveClass);
-    }
+    // Swap nav background color (Tailwind class swap)
+    $nav.removeClass(prevTheme.navBg).addClass(theme.navBg);
 
-    swapClass($navItems, prevTheme.navHoverColor, theme.navHoverColor);
+    // Update active nav item to use correct active class
+    const prevActiveClass = prevTheme.navActiveClass;
+    const newActiveClass = theme.navActiveClass;
 
-    const $aliH4 = getAliH4();
+    // Find all currently active nav items and swap class
+    $navItems.filter("." + prevActiveClass).each(function () {
+      $(this).removeClass(prevActiveClass).addClass(newActiveClass);
+    });
+
+    // Swap hover color classes on nav items
+    $navItems
+      .removeClass(prevTheme.navHoverColor)
+      .addClass(theme.navHoverColor);
+
+    // Swap Ali background color
+    const $aliH4 = $("#ali-text");
     if ($aliH4.length) {
-      swapClass($aliH4, prevTheme.aliH4Bg, theme.aliH4Bg);
+      $aliH4.removeClass(prevTheme.aliH4Bg).addClass(theme.aliH4Bg);
     }
+
+    // Swap navbar container background (for #ini and #ini-mobile)
+    $("#ini").removeClass(prevTheme.navBg).addClass(theme.navBg);
+    $("#ini-mobile").removeClass(prevTheme.navBg).addClass(theme.navBg);
   }
 
   function handleThemeToggle(e) {
@@ -247,23 +259,17 @@ $(document).ready(function () {
       ? THEMES.dark.navActiveClass
       : THEMES.light.navActiveClass;
 
-    $navItems.Desktop.on("change", handleThemeToggle);
-    $themeToggleMobileremoveClass(
+    $navItems.removeClass(
       `${THEMES.light.navActiveClass} ${THEMES.dark.navActiveClass}`
     );
     $(this).addClass(activeClass);
   }
 
   // ==================== Event Listeners ====================
-  $themeToggle.on("change", handleThemeToggle);
+  $themeToggleDesktop.on("change", handleThemeToggle);
+  $themeToggleMobile.on("change", handleThemeToggle);
   $navItems.on("click", handleNavClick);
-  Desktop.prop("checked", state.isDarkMode);
-  $themeToggleMobile.prop("checked", state.isDarkMode);
 
-  // Ensure navbar is visible on page load
-  if (navElement) {
-    navElement.classList.add("opacity-100");
-  }
   $(window).on("scroll", function () {
     if (!state.isScrolling) {
       updateActiveNav();
@@ -271,7 +277,13 @@ $(document).ready(function () {
   });
 
   // ==================== Initialization ====================
-  $themeToggle.prop("checked", state.isDarkMode);
+  $themeToggleDesktop.prop("checked", state.isDarkMode);
+  $themeToggleMobile.prop("checked", state.isDarkMode);
+
+  // Ensure navbar is visible on page load
+  if (navElement) {
+    navElement.classList.add("opacity-100");
+  }
 
   if (state.isDarkMode) {
     applyTheme(true);

@@ -123,6 +123,42 @@ body.bg2 .change-theme-text {
   color: #1f0701;
 }
 
+/* Navbar shadow styling */
+nav.nav-shadow {
+  box-shadow: 0 4px 6px rgba(33, 230, 193, 0.2);
+  transition: box-shadow 300ms ease;
+}
+
+body.bg2 nav.nav-shadow {
+  box-shadow: 0 4px 6px rgba(255, 200, 0, 0.2);
+}
+
+/* Desktop navbar text color */
+body.bg1 .desktop-nav-items {
+  color: #071e3d83;
+}
+
+body.bg2 .desktop-nav-items {
+  color: #1f070183;
+}
+
+/* Desktop nav items hover and active colors */
+body.bg1 .desktop-nav-items .nav_item {
+  color: #071e3d83;
+}
+
+body.bg1 .desktop-nav-items .nav_item.active {
+  color: #071e3d;
+}
+
+body.bg2 .desktop-nav-items .nav_item {
+  color: #1f070183;
+}
+
+body.bg2 .desktop-nav-items .nav_item.active2 {
+  color: #1f0701;
+}
+
 /* ==================== Mobile Navigation ==================== */
 .mobile-nav-toggle {
   display: none;
@@ -255,7 +291,7 @@ body.bg2 .change-theme-text {
 
 /* Hamburger colors based on theme */
 body.bg1 .mobile-nav-toggle {
-  background-color: #21E6C1;
+  background-color: #21e6c1;
 }
 
 body.bg1 .mobile-nav-toggle span {
@@ -273,16 +309,18 @@ body.bg2 .mobile-nav-toggle span {
 /* Theme switcher background */
 body.bg1 #ini,
 body.bg1 #ini-mobile {
-  background-color: #21E6C1;
+  background-color: #21e6c1;
+  color: #071e3d;
 }
 
 body.bg2 #ini,
 body.bg2 #ini-mobile {
   background-color: #ffc800;
+  color: #1f0701;
 }
 
 body.bg1 .mobile-menu {
-  background-color: #21E6C1;
+  background-color: #21e6c1;
   box-shadow: 0 10px 25px rgba(33, 230, 193, 0.3);
 }
 
