@@ -233,14 +233,10 @@ body.bg2 .change-theme-text {
   }
 
   /* Theme switcher with its own background */
-  #ini {
+  #ini-mobile {
     margin-left: auto;
     padding: 0.75rem !important;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  #ini .change-theme-text {
-    display: none !important;
   }
 
   label.group {
