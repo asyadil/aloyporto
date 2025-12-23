@@ -124,8 +124,6 @@ body.bg2 .nav-bg {
 }
 
 .mobile-menu {
-  background-color: #21E6C1;
-  box-shadow: 0 10px 25px rgba(33, 230, 193, 0.3);
 }
 
 
@@ -263,6 +261,7 @@ body.bg2 .mobile-menu a {
   }
 
   nav {
+    position: fixed; /* Fix position for margins to work */
     width: auto !important;
     top: 0.75rem;
     left: 2rem; /* Increased margin */
@@ -330,31 +329,7 @@ body.bg2 .mobile-nav-toggle span {
 }
 
 /* Theme switcher background */
-body.bg1 .mobile-menu {
-  background-color: #21E6C1;
-  box-shadow: 0 10px 25px rgba(33, 230, 193, 0.3);
-}
-
-body.bg2 .mobile-menu {
-  background-color: #ffc800;
-  box-shadow: 0 10px 25px rgba(255, 200, 0, 0.3);
-}
-
-body.bg1 .mobile-menu a {
-  color: #071e3d83;
-}
-
-body.bg2 .mobile-menu a {
-  color: #1f070183;
-}
-
-body.bg1 .mobile-menu a.active {
-  color: #071e3d;
-}
-
-body.bg2 .mobile-menu a.active2 {
-  color: #1f0701;
-}
+/* Removed block; mobile menu items styled individually above */
 
 /* ==================== Layout Sections ==================== */
 main {
