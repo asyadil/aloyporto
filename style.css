@@ -190,17 +190,17 @@ body.bg2 .change-theme-text {
   display: none;
   position: absolute;
   top: 100%;
-  left: 1rem; /* Added left/right margin to not cover full screen edge-to-edge if desired, or keep 0 */
-  right: 1rem;
+  left: 1rem;
+  right: auto; /* Changed to auto to prevent stretching */
   margin-top: 0.5rem;
   border-radius: 1rem;
-  overflow: visible; /* Changed from hidden to visible for shadows/etc */
+  overflow: visible;
   opacity: 0;
   transform: translateY(-10px);
   transition: all 0.3s ease;
   z-index: 50;
-  background-color: transparent; /* Removed solid background */
-  box-shadow: none; /* Removed box shadow from container */
+  background-color: transparent;
+  box-shadow: none;
 }
 
 .mobile-menu.show {
@@ -211,23 +211,24 @@ body.bg2 .change-theme-text {
 
 .mobile-menu ul {
   flex-direction: column;
-  gap: 0.5rem !important; /* Added gap between items */
+  gap: 0.75rem !important; /* Increased gap slightly */
   padding: 0.5rem 0;
-  align-items: flex-start; /* Left align items */
+  align-items: flex-start; /* Ensure left alignment */
 }
 
 .mobile-menu li {
-  width: 100%;
+  width: fit-content; /* Only wrap content */
 }
 
 .mobile-menu a {
   display: block;
-  width: 100%; /* Full width of the container */
-  padding: 0.75rem 1.5rem;
-  text-align: left; /* Left align text */
+  width: auto; /* Only wrap content */
+  padding: 0.5rem 1.25rem; /* Adjusted padding for pill shape */
+  text-align: left;
   transition: all 0.2s ease;
-  border-radius: 9999px; /* Rounded pill shape */
+  border-radius: 9999px;
   font-weight: bold;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 /* Theme-specific backgrounds for mobile menu items */
