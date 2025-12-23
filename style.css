@@ -438,12 +438,13 @@ nav {
 
   /* Contact section adjustments */
   #contact {
-    caret-color: black;
+    caret-color: auto;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
 
   #contact > div {
+    caret-color: auto;
     width: 100% !important;
     max-width: 100% !important;
     transform: scale(1) !important;
@@ -569,4 +570,5 @@ body.bg2 #contact input:focus,
 body.bg2 #contact textarea:focus {
   border-color: #ffc800;
 }
+
 
