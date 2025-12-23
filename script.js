@@ -35,14 +35,21 @@ function initializePage() {
   // Animate navbar fade in quickly
   setTimeout(function () {
     if (navElement) {
+      navElement.classList.remove("opacity-0");
       navElement.classList.add("opacity-100");
     }
 
     const homeText = document.querySelector("#home-text");
     const aliText = document.querySelector("#ali-text");
 
-    if (homeText) homeText.classList.add("opacity-100");
-    if (aliText) aliText.classList.add("opacity-100");
+    if (homeText) {
+      homeText.classList.remove("opacity-0");
+      homeText.classList.add("opacity-100");
+    }
+    if (aliText) {
+      aliText.classList.remove("opacity-0");
+      aliText.classList.add("opacity-100");
+    }
   }, 100);
 }
 
@@ -92,6 +99,21 @@ $(document).ready(function () {
   const navElement = document.querySelector("nav");
   const homeTextElement = document.querySelector("#home-text");
   const aliTextElement = document.querySelector("#ali-text");
+
+  // ==================== Immediate Visibility Fix ====================
+  // Ensure navbar and home elements are visible immediately when page loads
+  if (navElement) {
+    navElement.classList.remove("opacity-0");
+    navElement.classList.add("opacity-100");
+  }
+  if (homeTextElement) {
+    homeTextElement.classList.remove("opacity-0");
+    homeTextElement.classList.add("opacity-100");
+  }
+  if (aliTextElement) {
+    aliTextElement.classList.remove("opacity-0");
+    aliTextElement.classList.add("opacity-100");
+  }
 
   // ==================== Mobile Menu Management ====================
   const $mobileToggle = $(".mobile-nav-toggle");
@@ -297,26 +319,6 @@ $(document).ready(function () {
   // ==================== Initialization ====================
   $themeToggleDesktop.prop("checked", state.isDarkMode);
   $themeToggleMobile.prop("checked", state.isDarkMode);
-
-  // Immediately ensure navbar and home elements are visible
-  const navElement = document.querySelector("nav");
-  const homeTextElement = document.querySelector("#home-text");
-  const aliTextElement = document.querySelector("#ali-text");
-
-  if (navElement) {
-    navElement.classList.remove("opacity-0");
-    navElement.classList.add("opacity-100");
-  }
-
-  if (homeTextElement) {
-    homeTextElement.classList.remove("opacity-0");
-    homeTextElement.classList.add("opacity-100");
-  }
-
-  if (aliTextElement) {
-    aliTextElement.classList.remove("opacity-0");
-    aliTextElement.classList.add("opacity-100");
-  }
 
   // ALWAYS apply theme (light OR dark) to properly initialize all styles
   applyTheme(state.isDarkMode);
