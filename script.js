@@ -272,9 +272,9 @@ $(document).ready(function () {
     navElement.classList.add("opacity-100");
   }
 
-  if (state.isDarkMode) {
-    applyTheme(true);
-  }
+  // ALWAYS apply theme (light OR dark) to properly initialize all styles
+  applyTheme(state.isDarkMode);
 
+  // Set initial active nav based on current scroll position
   updateActiveNav();
 });
