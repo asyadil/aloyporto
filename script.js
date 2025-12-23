@@ -68,7 +68,8 @@ $(document).ready(function () {
 
   // ==================== DOM Caching ====================
   const $navItems = $(".nav_item");
-  const $themeToggle = $(".peer");
+  const $themeToggleDesktop = $("#ini .peer");
+  const $themeToggleMobile = $("#ini-mobile .peer");
   const $body = $("body");
   const $nav = $("nav");
   const navElement = document.querySelector("nav");
@@ -148,8 +149,15 @@ $(document).ready(function () {
     }
   }
 
-  function handleThemeToggle() {
-    state.isDarkMode = $themeToggle.is(":checked");
+  function handleThemeToggle(e) {
+    // Determine which checkbox was clicked
+    const $clickedCheckbox = $(e.target);
+    const isChecked = $clickedCheckbox.is(":checked");
+    state.isDarkMode = isChecked;
+
+    // Sync both checkboxes
+    $themeToggleDesktop.prop("checked", isChecked);
+    $themeToggleMobile.prop("checked", isChecked);
 
     // Save theme to localStorage
     localStorage.setItem("theme", state.isDarkMode ? "dark" : "light");
@@ -239,7 +247,8 @@ $(document).ready(function () {
       ? THEMES.dark.navActiveClass
       : THEMES.light.navActiveClass;
 
-    $navItems.removeClass(
+    $navItems.Desktop.on("change", handleThemeToggle);
+    $themeToggleMobileremoveClass(
       `${THEMES.light.navActiveClass} ${THEMES.dark.navActiveClass}`
     );
     $(this).addClass(activeClass);
@@ -248,7 +257,13 @@ $(document).ready(function () {
   // ==================== Event Listeners ====================
   $themeToggle.on("change", handleThemeToggle);
   $navItems.on("click", handleNavClick);
+  Desktop.prop("checked", state.isDarkMode);
+  $themeToggleMobile.prop("checked", state.isDarkMode);
 
+  // Ensure navbar is visible on page load
+  if (navElement) {
+    navElement.classList.add("opacity-100");
+  }
   $(window).on("scroll", function () {
     if (!state.isScrolling) {
       updateActiveNav();
