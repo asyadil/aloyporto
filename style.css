@@ -162,6 +162,7 @@ body.bg2 .change-theme-text {
   border-radius: 1.5rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-right: 1rem; /* Added margin */
 }
 
 .mobile-nav-toggle span {
@@ -189,15 +190,17 @@ body.bg2 .change-theme-text {
   display: none;
   position: absolute;
   top: 100%;
-  left: 0;
-  right: 0;
+  left: 1rem; /* Added left/right margin to not cover full screen edge-to-edge if desired, or keep 0 */
+  right: 1rem;
   margin-top: 0.5rem;
   border-radius: 1rem;
-  overflow: hidden;
+  overflow: visible; /* Changed from hidden to visible for shadows/etc */
   opacity: 0;
   transform: translateY(-10px);
   transition: all 0.3s ease;
   z-index: 50;
+  background-color: transparent; /* Removed solid background */
+  box-shadow: none; /* Removed box shadow from container */
 }
 
 .mobile-menu.show {
@@ -208,8 +211,9 @@ body.bg2 .change-theme-text {
 
 .mobile-menu ul {
   flex-direction: column;
-  gap: 0 !important;
+  gap: 0.5rem !important; /* Added gap between items */
   padding: 0.5rem 0;
+  align-items: flex-start; /* Left align items */
 }
 
 .mobile-menu li {
@@ -218,13 +222,30 @@ body.bg2 .change-theme-text {
 
 .mobile-menu a {
   display: block;
-  padding: 1rem 1.5rem;
-  text-align: center;
+  width: 100%; /* Full width of the container */
+  padding: 0.75rem 1.5rem;
+  text-align: left; /* Left align text */
   transition: all 0.2s ease;
+  border-radius: 9999px; /* Rounded pill shape */
+  font-weight: bold;
+}
+
+/* Theme-specific backgrounds for mobile menu items */
+body.bg1 .mobile-menu a {
+  background-color: #21E6C1;
+  color: #071E3D;
+  box-shadow: 0 4px 6px rgba(33, 230, 193, 0.2);
+}
+
+body.bg2 .mobile-menu a {
+  background-color: #ffc800;
+  color: #1f0701;
+  box-shadow: 0 4px 6px rgba(255, 200, 0, 0.2);
 }
 
 .mobile-menu a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+  filter: brightness(110%);
 }
 
 @media (max-width: 768px) {
