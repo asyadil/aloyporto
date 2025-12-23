@@ -251,6 +251,13 @@ body.bg2 .change-theme-text {
     box-shadow: none !important;
     padding: 0 !important;
   }
+  
+  /* Force transparent background on nav container for mobile, overriding theme rules */
+  body.bg1 nav.nav-bg,
+  body.bg2 nav.nav-bg {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
 
   nav .container {
     padding: 0 !important;
