@@ -99,18 +99,26 @@ body {
 
 /* ==================== Navigation Styles ==================== */
 
-/* Theme switcher background - using both ID and class selectors */
-body.bg1 #ini,
-body.bg1 #ini-mobile,
-body.bg1 .ini-bg {
-  background-color: #21E6C1 !important;
+/* Default/Fallback navbar colors - applied BEFORE JavaScript loads */
+#ini,
+#ini-mobile,
+.ini-bg {
+  background-color: #21E6C1; /* Default to light theme */
 }
 
-body.bg2 #ini,
-body.bg2 #ini-mobile,
-body.bg2 .ini-bg {
-  background-color: #ffc800 !important;
+.mobile-nav-toggle {
+  background-color: #21E6C1;
 }
+
+.mobile-nav-toggle span {
+  background-color: #071e3d;
+}
+
+.mobile-menu {
+  background-color: #21E6C1;
+  box-shadow: 0 10px 25px rgba(33, 230, 193, 0.3);
+}
+
 
 .nav_item {
   cursor: pointer;
@@ -285,16 +293,6 @@ body.bg2 .mobile-nav-toggle span {
 }
 
 /* Theme switcher background */
-body.bg1 #ini,
-body.bg1 #ini-mobile {
-  background-color: #21E6C1;
-}
-
-body.bg2 #ini,
-body.bg2 #ini-mobile {
-  background-color: #ffc800;
-}
-
 body.bg1 .mobile-menu {
   background-color: #21E6C1;
   box-shadow: 0 10px 25px rgba(33, 230, 193, 0.3);
@@ -552,4 +550,5 @@ body.bg2 #contact input:focus,
 body.bg2 #contact textarea:focus {
   border-color: #ffc800;
 }
+
 
