@@ -271,11 +271,13 @@ body.bg2 .mobile-nav-toggle span {
 }
 
 /* Theme switcher background */
-body.bg1 #ini {
+body.bg1 #ini,
+body.bg1 #ini-mobile {
   background-color: #21E6C1;
 }
 
-body.bg2 #ini {
+body.bg2 #ini,
+body.bg2 #ini-mobile {
   background-color: #ffc800;
 }
 
