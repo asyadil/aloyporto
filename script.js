@@ -44,13 +44,11 @@ $(document).ready(function () {
     light: {
       bgClass: "bg1",
       navActiveClass: "active",
-      navHoverColor: "hover:text-[#071E3D]",
       aliH4Bg: "bg-[#21E6C1]",
     },
     dark: {
       bgClass: "bg2",
       navActiveClass: "active2",
-      navHoverColor: "hover:text-[#1f0701]",
       aliH4Bg: "bg-[#ffc800]",
     },
   };
@@ -128,22 +126,17 @@ $(document).ready(function () {
     const theme = getTheme(isDark);
     const prevTheme = getPrevTheme(isDark);
 
-    // Remove previous bg class and add new one - this triggers all CSS rules
+    // Remove previous bg class and add new one - this triggers all CSS rules via body.bg1/bg2
     $body.removeClass(prevTheme.bgClass).addClass(theme.bgClass);
 
-    // Update active nav item to use correct active class
-    const prevActiveClass = prevTheme.navActiveClass;
-    const newActiveClass = theme.navActiveClass;
-
-    // Find all currently active nav items and swap class
-    $navItems.filter("." + prevActiveClass).each(function () {
-      $(this).removeClass(prevActiveClass).addClass(newActiveClass);
-    });
-
-    // Swap hover color classes on nav items
-    $navItems
-      .removeClass(prevTheme.navHoverColor)
-      .addClass(theme.navHoverColor);
+    // Update CURRENTLY active nav item to use correct active class for the new theme
+    // Find which nav item has the old active class
+    const currentlyActive = $navItems.filter("." + prevTheme.navActiveClass);
+    if (currentlyActive.length > 0) {
+      currentlyActive
+        .removeClass(prevTheme.navActiveClass)
+        .addClass(theme.navActiveClass);
+    }
 
     // Swap Ali background color
     const $aliH4 = $("#ali-text");
@@ -151,7 +144,8 @@ $(document).ready(function () {
       $aliH4.removeClass(prevTheme.aliH4Bg).addClass(theme.aliH4Bg);
     }
 
-    // CSS rules handle the rest via body.bg1 / body.bg2
+    // CSS rules handle all color transitions via body.bg1 / body.bg2
+    // No need to swap hover classes - CSS handles via body selectors
   }
 
   function handleThemeToggle(e) {
