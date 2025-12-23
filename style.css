@@ -133,6 +133,30 @@ body.bg2 nav.nav-shadow {
   box-shadow: 0 4px 6px rgba(255, 200, 0, 0.2);
 }
 
+/* Navbar background styling */
+nav.nav-bg {
+  background-color: #21e6c1;
+  color: #071e3d;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+body.bg2 nav.nav-bg {
+  background-color: #ffc800;
+  color: #1f0701;
+}
+
+/* Theme switcher background styling */
+.ini-bg {
+  background-color: #21e6c1;
+  color: #071e3d;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+body.bg2 .ini-bg {
+  background-color: #ffc800;
+  color: #1f0701;
+}
+
 /* Desktop navbar text color */
 body.bg1 .desktop-nav-items {
   color: #071e3d83;
@@ -307,18 +331,6 @@ body.bg2 .mobile-nav-toggle span {
 }
 
 /* Theme switcher background */
-body.bg1 #ini,
-body.bg1 #ini-mobile {
-  background-color: #21e6c1;
-  color: #071e3d;
-}
-
-body.bg2 #ini,
-body.bg2 #ini-mobile {
-  background-color: #ffc800;
-  color: #1f0701;
-}
-
 body.bg1 .mobile-menu {
   background-color: #21e6c1;
   box-shadow: 0 10px 25px rgba(33, 230, 193, 0.3);

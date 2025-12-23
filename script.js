@@ -43,14 +43,12 @@ $(document).ready(function () {
   const THEMES = {
     light: {
       bgClass: "bg1",
-      navBg: "bg-[#21E6C1]",
       navActiveClass: "active",
       navHoverColor: "hover:text-[#071E3D]",
       aliH4Bg: "bg-[#21E6C1]",
     },
     dark: {
       bgClass: "bg2",
-      navBg: "bg-[#ffc800]",
       navActiveClass: "active2",
       navHoverColor: "hover:text-[#1f0701]",
       aliH4Bg: "bg-[#ffc800]",
@@ -133,9 +131,6 @@ $(document).ready(function () {
     // Remove previous bg class and add new one - this triggers all CSS rules
     $body.removeClass(prevTheme.bgClass).addClass(theme.bgClass);
 
-    // Swap nav background color (Tailwind class swap)
-    $nav.removeClass(prevTheme.navBg).addClass(theme.navBg);
-
     // Update active nav item to use correct active class
     const prevActiveClass = prevTheme.navActiveClass;
     const newActiveClass = theme.navActiveClass;
@@ -156,9 +151,7 @@ $(document).ready(function () {
       $aliH4.removeClass(prevTheme.aliH4Bg).addClass(theme.aliH4Bg);
     }
 
-    // Swap navbar container background (for #ini and #ini-mobile)
-    $("#ini").removeClass(prevTheme.navBg).addClass(theme.navBg);
-    $("#ini-mobile").removeClass(prevTheme.navBg).addClass(theme.navBg);
+    // CSS rules handle the rest via body.bg1 / body.bg2
   }
 
   function handleThemeToggle(e) {
