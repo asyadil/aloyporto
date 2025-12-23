@@ -1,5 +1,5 @@
 // ==================== Page Initialization ====================
-window.onload = function () {
+function initializePage() {
   const body = document.querySelector("body");
   const mainElement = document.querySelector("main");
   const loaderElement = document.querySelector(".loader");
@@ -12,8 +12,13 @@ window.onload = function () {
   const savedTheme = localStorage.getItem("theme");
   const bgClass = savedTheme === "dark" ? "bg2" : "bg1";
 
-  // Apply bg class
-  body.classList.add(bgClass);
+  // Apply bg class if not already applied
+  if (!body.classList.contains(bgClass)) {
+    const otherBgClass = bgClass === "bg1" ? "bg2" : "bg1";
+    body.classList.remove(otherBgClass);
+    body.classList.add(bgClass);
+  }
+
   body.style.backgroundImage = "none";
 
   // Hide loader and show main immediately
@@ -39,7 +44,13 @@ window.onload = function () {
     if (homeText) homeText.classList.add("opacity-100");
     if (aliText) aliText.classList.add("opacity-100");
   }, 100);
-};
+}
+
+// Initialize on page load
+window.addEventListener("load", initializePage);
+
+// Also initialize on page show (for back button navigation)
+window.addEventListener("pageshow", initializePage);
 
 $(document).ready(function () {
   // ==================== Configuration ====================
