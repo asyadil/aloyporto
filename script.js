@@ -52,6 +52,9 @@ window.addEventListener("load", initializePage);
 // Also initialize on page show (for back button navigation)
 window.addEventListener("pageshow", initializePage);
 
+// Also initialize when DOM is ready (for regular navigation)
+document.addEventListener("DOMContentLoaded", initializePage);
+
 $(document).ready(function () {
   // ==================== Configuration ====================
   const CONFIG = {
@@ -295,9 +298,24 @@ $(document).ready(function () {
   $themeToggleDesktop.prop("checked", state.isDarkMode);
   $themeToggleMobile.prop("checked", state.isDarkMode);
 
-  // Ensure navbar is visible on page load
+  // Immediately ensure navbar and home elements are visible
+  const navElement = document.querySelector("nav");
+  const homeTextElement = document.querySelector("#home-text");
+  const aliTextElement = document.querySelector("#ali-text");
+
   if (navElement) {
+    navElement.classList.remove("opacity-0");
     navElement.classList.add("opacity-100");
+  }
+
+  if (homeTextElement) {
+    homeTextElement.classList.remove("opacity-0");
+    homeTextElement.classList.add("opacity-100");
+  }
+
+  if (aliTextElement) {
+    aliTextElement.classList.remove("opacity-0");
+    aliTextElement.classList.add("opacity-100");
   }
 
   // ALWAYS apply theme (light OR dark) to properly initialize all styles
