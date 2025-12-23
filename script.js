@@ -8,20 +8,18 @@ window.onload = function () {
   const savedTheme = localStorage.getItem("theme");
   const bgClass = savedTheme === "dark" ? "bg2" : "bg1";
 
-  // Apply bg class SEKARANG supaya body punya background-color yang benar saat loading
+  // Apply bg class
   body.classList.add(bgClass);
-
-  // Tapi remove background-image supaya cuma solid color yang terlihat saat loading
   body.style.backgroundImage = "none";
 
   setTimeout(function () {
     document.querySelector(".loader").style.display = "none";
     document.querySelector("main").style.display = "block";
 
-    // Restore background-image setelah loader hilang
+    // Restore background-image
     body.style.backgroundImage = "";
 
-    // Animate navbar and home text fade in (700ms)
+    // Animate navbar and home text fade in
     setTimeout(function () {
       const nav = document.querySelector("nav");
       const homeText = document.querySelector("#home-text");
@@ -65,6 +63,7 @@ $(document).ready(function () {
   const state = {
     isScrolling: false,
     isDarkMode: localStorage.getItem("theme") === "dark" ? true : false,
+    isMobileMenuOpen: false,
   };
 
   // ==================== DOM Caching ====================
@@ -75,6 +74,40 @@ $(document).ready(function () {
   const navElement = document.querySelector("nav");
   const homeTextElement = document.querySelector("#home-text");
   const aliTextElement = document.querySelector("#ali-text");
+
+  // ==================== Mobile Menu Management ====================
+  const $mobileToggle = $(".mobile-nav-toggle");
+  const $mobileMenu = $(".mobile-menu");
+
+  function toggleMobileMenu() {
+    state.isMobileMenuOpen = !state.isMobileMenuOpen;
+    $mobileToggle.toggleClass("active");
+    $mobileMenu.toggleClass("show");
+  }
+
+  function closeMobileMenu() {
+    state.isMobileMenuOpen = false;
+    $mobileToggle.removeClass("active");
+    $mobileMenu.removeClass("show");
+  }
+
+  // Mobile toggle click
+  $mobileToggle.on("click", function (e) {
+    e.stopPropagation();
+    toggleMobileMenu();
+  });
+
+  // Close menu when clicking nav items
+  $mobileMenu.find(".nav_item").on("click", function () {
+    closeMobileMenu();
+  });
+
+  // Close menu when clicking outside
+  $(document).on("click", function (e) {
+    if (state.isMobileMenuOpen && !$(e.target).closest("nav").length) {
+      closeMobileMenu();
+    }
+  });
 
   // ==================== Helper Functions ====================
   function getAliH4() {
@@ -110,7 +143,9 @@ $(document).ready(function () {
     swapClass($navItems, prevTheme.navHoverColor, theme.navHoverColor);
 
     const $aliH4 = getAliH4();
-    swapClass($aliH4, prevTheme.aliH4Bg, theme.aliH4Bg);
+    if ($aliH4.length) {
+      swapClass($aliH4, prevTheme.aliH4Bg, theme.aliH4Bg);
+    }
   }
 
   function handleThemeToggle() {
@@ -151,13 +186,11 @@ $(document).ready(function () {
       const sectionTop = $section.offset().top;
       const sectionBottom = sectionTop + $section.outerHeight();
 
-      // Exact match within section
       if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
         activeNav = this;
-        return false; // Break loop
+        return false;
       }
 
-      // Track closest section as fallback
       const distance = Math.abs(scrollPos - sectionTop);
       if (distance < closestDistance) {
         closestDistance = distance;
@@ -202,7 +235,6 @@ $(document).ready(function () {
       }
     );
 
-    // Update active state
     const activeClass = state.isDarkMode
       ? THEMES.dark.navActiveClass
       : THEMES.light.navActiveClass;
@@ -224,10 +256,8 @@ $(document).ready(function () {
   });
 
   // ==================== Initialization ====================
-  // Sync checkbox with saved theme state
   $themeToggle.prop("checked", state.isDarkMode);
 
-  // Apply theme colors (nav, text) based on saved state
   if (state.isDarkMode) {
     applyTheme(true);
   }
