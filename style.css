@@ -98,6 +98,20 @@ body {
 }
 
 /* ==================== Navigation Styles ==================== */
+
+/* Theme switcher background - using both ID and class selectors */
+body.bg1 #ini,
+body.bg1 #ini-mobile,
+body.bg1 .ini-bg {
+  background-color: #21E6C1 !important;
+}
+
+body.bg2 #ini,
+body.bg2 #ini-mobile,
+body.bg2 .ini-bg {
+  background-color: #ffc800 !important;
+}
+
 .nav_item {
   cursor: pointer;
 }
@@ -538,3 +552,4 @@ body.bg2 #contact input:focus,
 body.bg2 #contact textarea:focus {
   border-color: #ffc800;
 }
+
