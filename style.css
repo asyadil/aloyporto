@@ -169,6 +169,11 @@ body.bg2 .desktop-nav-items {
 /* Desktop nav items hover and active colors */
 body.bg1 .desktop-nav-items .nav_item {
   color: #071e3d83;
+  transition: color 200ms ease;
+}
+
+body.bg1 .desktop-nav-items .nav_item:hover {
+  color: #071e3d;
 }
 
 body.bg1 .desktop-nav-items .nav_item.active {
@@ -177,6 +182,11 @@ body.bg1 .desktop-nav-items .nav_item.active {
 
 body.bg2 .desktop-nav-items .nav_item {
   color: #1f070183;
+  transition: color 200ms ease;
+}
+
+body.bg2 .desktop-nav-items .nav_item:hover {
+  color: #1f0701;
 }
 
 body.bg2 .desktop-nav-items .nav_item.active2 {
