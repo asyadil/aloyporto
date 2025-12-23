@@ -123,76 +123,6 @@ body.bg2 .change-theme-text {
   color: #1f0701;
 }
 
-/* Navbar shadow styling */
-nav.nav-shadow {
-  box-shadow: 0 4px 6px rgba(33, 230, 193, 0.2);
-  transition: box-shadow 300ms ease;
-}
-
-body.bg2 nav.nav-shadow {
-  box-shadow: 0 4px 6px rgba(255, 200, 0, 0.2);
-}
-
-/* Navbar background styling */
-nav.nav-bg {
-  background-color: #21e6c1;
-  color: #071e3d;
-  transition: background-color 300ms ease, color 300ms ease;
-}
-
-body.bg2 nav.nav-bg {
-  background-color: #ffc800;
-  color: #1f0701;
-}
-
-/* Theme switcher background styling */
-.ini-bg {
-  background-color: #21e6c1;
-  color: #071e3d;
-  transition: background-color 300ms ease, color 300ms ease;
-}
-
-body.bg2 .ini-bg {
-  background-color: #ffc800;
-  color: #1f0701;
-}
-
-/* Desktop navbar text color */
-body.bg1 .desktop-nav-items {
-  color: #071e3d83;
-}
-
-body.bg2 .desktop-nav-items {
-  color: #1f070183;
-}
-
-/* Desktop nav items hover and active colors */
-body.bg1 .desktop-nav-items .nav_item {
-  color: #071e3d83;
-  transition: color 200ms ease;
-}
-
-body.bg1 .desktop-nav-items .nav_item:hover {
-  color: #071e3d;
-}
-
-body.bg1 .desktop-nav-items .nav_item.active {
-  color: #071e3d;
-}
-
-body.bg2 .desktop-nav-items .nav_item {
-  color: #1f070183;
-  transition: color 200ms ease;
-}
-
-body.bg2 .desktop-nav-items .nav_item:hover {
-  color: #1f0701;
-}
-
-body.bg2 .desktop-nav-items .nav_item.active2 {
-  color: #1f0701;
-}
-
 /* ==================== Mobile Navigation ==================== */
 .mobile-nav-toggle {
   display: none;
@@ -325,7 +255,7 @@ body.bg2 .desktop-nav-items .nav_item.active2 {
 
 /* Hamburger colors based on theme */
 body.bg1 .mobile-nav-toggle {
-  background-color: #21e6c1;
+  background-color: #21E6C1;
 }
 
 body.bg1 .mobile-nav-toggle span {
@@ -341,8 +271,18 @@ body.bg2 .mobile-nav-toggle span {
 }
 
 /* Theme switcher background */
+body.bg1 #ini,
+body.bg1 #ini-mobile {
+  background-color: #21E6C1;
+}
+
+body.bg2 #ini,
+body.bg2 #ini-mobile {
+  background-color: #ffc800;
+}
+
 body.bg1 .mobile-menu {
-  background-color: #21e6c1;
+  background-color: #21E6C1;
   box-shadow: 0 10px 25px rgba(33, 230, 193, 0.3);
 }
 
@@ -438,13 +378,11 @@ nav {
 
   /* Contact section adjustments */
   #contact {
-    caret-color: auto;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
 
   #contact > div {
-    caret-color: auto;
     width: 100% !important;
     max-width: 100% !important;
     transform: scale(1) !important;
@@ -534,12 +472,42 @@ body.bg2 .project-btn {
 
 /* ==================== Contact Section Theme ==================== */
 .contact-btn {
-  transition: background-color 300ms ease, color 300ms ease;
+  transition: all 300ms ease;
+  cursor: pointer;
+}
+
+.contact-btn:disabled {
+  cursor: not-allowed;
+}
+
+.contact-btn.submitting {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact-btn.success {
+  background-color: #10b981 !important;
+  opacity: 1;
+}
+
+.contact-btn.error {
+  background-color: #ef4444 !important;
+  opacity: 1;
 }
 
 body.bg2 .contact-btn {
   background-color: #ffc800;
   color: #1f0701;
+}
+
+body.bg2 .contact-btn.success {
+  background-color: #10b981 !important;
+  color: #ffffff !important;
+}
+
+body.bg2 .contact-btn.error {
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
 }
 
 /* Contact Icon Theme */
@@ -570,5 +538,3 @@ body.bg2 #contact input:focus,
 body.bg2 #contact textarea:focus {
   border-color: #ffc800;
 }
-
-
