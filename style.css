@@ -331,19 +331,29 @@ body.bg2 .mobile-menu a:hover {
   /* Hamburger button with its own background */
   .mobile-nav-toggle {
     background-color: inherit;
-    margin-left: 0.75rem;
+    margin-left: max(0.75rem, env(safe-area-inset-left));
   }
 
   /* Theme switcher with its own background */
   #ini-mobile {
     margin-left: auto;
-    margin-right: 0.75rem;
+    margin-right: max(0.75rem, env(safe-area-inset-right));
     padding: 0.75rem !important;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   label.group {
     transform: scale(1.2) !important;
+  }
+
+  #about {
+    padding-left: max(0.75rem, env(safe-area-inset-left)) !important;
+    padding-right: max(0.75rem, env(safe-area-inset-right)) !important;
+  }
+
+  #contact {
+    padding-left: max(0.75rem, env(safe-area-inset-left)) !important;
+    padding-right: max(0.75rem, env(safe-area-inset-right)) !important;
   }
 }
 
