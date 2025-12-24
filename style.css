@@ -333,6 +333,11 @@ body.bg2 .mobile-menu a:hover {
     background-color: inherit;
     margin-left: max(0.75rem, env(safe-area-inset-left));
   }
+  
+  /* Back button margin on project pages (mobile) */
+  .back-btn {
+    margin-left: max(0.75rem, env(safe-area-inset-left));
+  }
 
   /* Theme switcher with its own background */
   #ini-mobile {
@@ -347,13 +352,13 @@ body.bg2 .mobile-menu a:hover {
   }
 
   #about {
-    padding-left: max(0.75rem, env(safe-area-inset-left)) !important;
-    padding-right: max(0.75rem, env(safe-area-inset-right)) !important;
+    padding-left: max(1.5rem, env(safe-area-inset-left)) !important;
+    padding-right: max(1.5rem, env(safe-area-inset-right)) !important;
   }
 
   #contact {
-    padding-left: max(0.75rem, env(safe-area-inset-left)) !important;
-    padding-right: max(0.75rem, env(safe-area-inset-right)) !important;
+    padding-left: max(1.5rem, env(safe-area-inset-left)) !important;
+    padding-right: max(1.5rem, env(safe-area-inset-right)) !important;
   }
 }
 
