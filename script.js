@@ -4,9 +4,6 @@ function initializePage() {
   const mainElement = document.querySelector("main");
   const loaderElement = document.querySelector(".loader");
   const navElement = document.querySelector("nav");
-  const isHomePage = !!document.querySelector("section#home");
-  const cameFromProjects =
-    document.referrer && /\/projects(\/|$)/.test(document.referrer);
 
   body.classList.remove("opacity-0");
   body.classList.add("opacity-100");
@@ -22,50 +19,33 @@ function initializePage() {
 
   body.style.backgroundImage = "none";
 
-  if (loaderElement && mainElement) {
-    if (isHomePage && !cameFromProjects) {
-      loaderElement.style.display = "none";
-      mainElement.style.display = "none";
-      setTimeout(function () {
-        mainElement.style.display = "block";
-        if (navElement) {
-          navElement.classList.remove("opacity-0");
-          navElement.classList.add("opacity-100");
-        }
-        const homeText = document.querySelector("#home-text");
-        const aliText = document.querySelector("#ali-text");
-        if (homeText) {
-          homeText.classList.remove("opacity-0");
-          homeText.classList.add("opacity-100");
-        }
-        if (aliText) {
-          aliText.classList.remove("opacity-0");
-          aliText.classList.add("opacity-100");
-        }
-      }, 1000);
-    } else {
-      loaderElement.style.display = "none";
-      mainElement.style.display = "block";
-      setTimeout(function () {
-        if (navElement) {
-          navElement.classList.remove("opacity-0");
-          navElement.classList.add("opacity-100");
-        }
-        const homeText = document.querySelector("#home-text");
-        const aliText = document.querySelector("#ali-text");
-        if (homeText) {
-          homeText.classList.remove("opacity-0");
-          homeText.classList.add("opacity-100");
-        }
-        if (aliText) {
-          aliText.classList.remove("opacity-0");
-          aliText.classList.add("opacity-100");
-        }
-      }, 100);
-    }
+  if (loaderElement) {
+    loaderElement.style.display = "none";
+  }
+  if (mainElement) {
+    mainElement.style.display = "block";
   }
 
   body.style.backgroundImage = "";
+
+  setTimeout(function () {
+    if (navElement) {
+      navElement.classList.remove("opacity-0");
+      navElement.classList.add("opacity-100");
+    }
+
+    const homeText = document.querySelector("#home-text");
+    const aliText = document.querySelector("#ali-text");
+
+    if (homeText) {
+      homeText.classList.remove("opacity-0");
+      homeText.classList.add("opacity-100");
+    }
+    if (aliText) {
+      aliText.classList.remove("opacity-0");
+      aliText.classList.add("opacity-100");
+    }
+  }, 100);
 }
 
 window.addEventListener("load", initializePage);
@@ -111,16 +91,15 @@ $(document).ready(function () {
   const aliTextElement = document.querySelector("#ali-text");
 
   // ==================== Immediate Visibility Fix ====================
-  const isHomePage = !!document.querySelector("section#home");
-  if (navElement && !isHomePage) {
+  if (navElement) {
     navElement.classList.remove("opacity-0");
     navElement.classList.add("opacity-100");
   }
-  if (homeTextElement && !isHomePage) {
+  if (homeTextElement) {
     homeTextElement.classList.remove("opacity-0");
     homeTextElement.classList.add("opacity-100");
   }
-  if (aliTextElement && !isHomePage) {
+  if (aliTextElement) {
     aliTextElement.classList.remove("opacity-0");
     aliTextElement.classList.add("opacity-100");
   }
