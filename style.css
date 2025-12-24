@@ -307,8 +307,8 @@ body.bg2 .mobile-menu a:hover {
     position: fixed; /* Fix position for margins to work */
     width: auto !important;
     top: 0.75rem;
-    left: 0;
-    right: 0;
+    left: max(0.75rem, env(safe-area-inset-left));
+    right: max(0.75rem, env(safe-area-inset-right));
     margin-inline: 0;
     background: transparent !important;
     box-shadow: none !important;
@@ -334,7 +334,6 @@ body.bg2 .mobile-menu a:hover {
     margin-left: max(0.75rem, env(safe-area-inset-left));
   }
   
-  /* Back button margin on project pages (mobile) */
   .back-btn {
     margin-left: max(0.75rem, env(safe-area-inset-left));
   }
