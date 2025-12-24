@@ -171,6 +171,8 @@ $(document).ready(function () {
 
     $themeToggleDesktop.prop("checked", isChecked);
     $themeToggleMobile.prop("checked", isChecked);
+    $themeToggleDesktop.attr("aria-checked", isChecked);
+    $themeToggleMobile.attr("aria-checked", isChecked);
 
     localStorage.setItem("theme", state.isDarkMode ? "dark" : "light");
 
@@ -281,6 +283,8 @@ $(document).ready(function () {
   // ==================== Initialization ====================
   $themeToggleDesktop.prop("checked", state.isDarkMode);
   $themeToggleMobile.prop("checked", state.isDarkMode);
+  $themeToggleDesktop.attr("aria-checked", state.isDarkMode);
+  $themeToggleMobile.attr("aria-checked", state.isDarkMode);
 
   applyTheme(state.isDarkMode);
   updateActiveNav();

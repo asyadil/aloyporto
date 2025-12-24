@@ -77,21 +77,19 @@
                 id="ini"
                 class="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 md:px-6 lg:px-[1.5rem] py-[0.5rem] rounded-full border-[1px] border-[#00000080] ini-bg"
               >
-                <span
+                <span id="change-theme-desktop"
                   class="hidden sm:inline text-xs md:text-sm change-theme-text"
                   >Change theme</span
                 >
                 <label
                   class="group border-[1px] rounded-full border-[#00000080] relative inline-flex cursor-pointer items-center transform scale-[1.4] origin-center"
                 >
-                  <input class="peer sr-only" type="checkbox" />
+                  <input id="theme-toggle-desktop" class="peer sr-only" type="checkbox" role="switch" aria-labelledby="change-theme-desktop" aria-label="Change theme" />
                   <div
                     class="relative h-4 w-8 rounded-full bg-[#003cff] transition-all duration-500 after:absolute after:left-0.5 after:top-0.5 after:h-3 after:w-3 after:rounded-full after:bg-white after:transition-all after:duration-500 peer-checked:bg-[#ff0000] peer-checked:after:translate-x-4 hover:after:scale-95 active:after:scale-90"
                   >
-                    <span
-                      class="absolute inset-1 rounded-full bg-white/10"
-                    ></span>
-                    <span
+                    <span aria-hidden="true" class="absolute inset-1 rounded-full bg-white/10"></span>
+                    <span aria-hidden="true"
                       class="absolute inset-0 rounded-full opacity-0 transition-opacity duration-500 peer-checked:animate-glow peer-checked:opacity-100"
                     ></span>
                   </div>
