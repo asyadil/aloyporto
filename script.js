@@ -112,6 +112,7 @@ $(document).ready(function () {
     state.isMobileMenuOpen = !state.isMobileMenuOpen;
     $mobileToggle.toggleClass("active");
     $mobileMenu.toggleClass("show");
+    updateActiveNav();
   }
 
   function closeMobileMenu() {
@@ -229,17 +230,15 @@ $(document).ready(function () {
 
   function updateActiveNav() {
     const activeNav = findActiveNav();
-
-    if (activeNav) {
-      const activeClass = state.isDarkMode
-        ? THEMES.dark.navActiveClass
-        : THEMES.light.navActiveClass;
-
-      $navItems.removeClass(
-        `${THEMES.light.navActiveClass} ${THEMES.dark.navActiveClass}`
-      );
-      $(activeNav).addClass(activeClass);
-    }
+    if (!activeNav) return;
+    const href = $(activeNav).attr("href");
+    const activeClass = state.isDarkMode
+      ? THEMES.dark.navActiveClass
+      : THEMES.light.navActiveClass;
+    $navItems.removeClass(
+      `${THEMES.light.navActiveClass} ${THEMES.dark.navActiveClass}`
+    );
+    $navItems.filter(`[href="${href}"]`).addClass(activeClass);
   }
 
   // ==================== Click Navigation ====================
@@ -268,7 +267,7 @@ $(document).ready(function () {
     $navItems.removeClass(
       `${THEMES.light.navActiveClass} ${THEMES.dark.navActiveClass}`
     );
-    $(this).addClass(activeClass);
+    $navItems.filter(`[href="${href}"]`).addClass(activeClass);
   }
 
   // ==================== Event Listeners ====================
