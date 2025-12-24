@@ -123,9 +123,6 @@ body.bg2 .nav-bg {
   background-color: #071e3d;
 }
 
-.mobile-menu {
-}
-
 
 .nav_item {
   cursor: pointer;
@@ -331,9 +328,9 @@ body.bg2 .mobile-menu a:hover {
   /* Hamburger button with its own background */
   .mobile-nav-toggle {
     background-color: inherit;
-    margin-left: max(0.75rem, env(safe-area-inset-left));
   }
   
+  .mobile-nav-toggle,
   .back-btn {
     margin-left: max(0.75rem, env(safe-area-inset-left));
   }
@@ -350,11 +347,7 @@ body.bg2 .mobile-menu a:hover {
     transform: scale(1.2) !important;
   }
 
-  #about {
-    padding-left: max(1.5rem, env(safe-area-inset-left)) !important;
-    padding-right: max(1.5rem, env(safe-area-inset-right)) !important;
-  }
-
+  #about,
   #contact {
     padding-left: max(1.5rem, env(safe-area-inset-left)) !important;
     padding-right: max(1.5rem, env(safe-area-inset-right)) !important;

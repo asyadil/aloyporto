@@ -136,21 +136,12 @@ $(document).ready(function () {
     }
   });
 
-  // ==================== Helper Functions ====================
-  function getAliH4() {
-    return $("#ali-text");
-  }
-
   function getTheme(isDark) {
     return isDark ? THEMES.dark : THEMES.light;
   }
 
   function getPrevTheme(isDark) {
     return isDark ? THEMES.light : THEMES.dark;
-  }
-
-  function swapClass($element, oldClass, newClass) {
-    return $element.removeClass(oldClass).addClass(newClass);
   }
 
   // ==================== Theme Management ====================
