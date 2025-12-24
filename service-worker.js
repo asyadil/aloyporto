@@ -1,4 +1,4 @@
-const CACHE_NAME = 'offline-v2';
+const CACHE_NAME = 'offline-v3';
 const OFFLINE_URL = 'offline.html';
 const OFFLINE_ASSETS = [
   OFFLINE_URL,
@@ -8,7 +8,10 @@ const OFFLINE_ASSETS = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(OFFLINE_ASSETS);
+      const requests = OFFLINE_ASSETS.map(
+        (url) => new Request(url, { cache: 'reload' })
+      );
+      return cache.addAll(requests);
     })
   );
   self.skipWaiting();
@@ -28,6 +31,9 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  const url = new URL(event.request.url);
+
+  // Serve navigation requests with offline fallback
   if (event.request.mode === 'navigate') {
     event.respondWith(
       fetch(event.request).catch(() => caches.match(OFFLINE_URL))
@@ -35,10 +41,25 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // For the offline icon, try cache first
-  if (OFFLINE_ASSETS.includes(event.request.url.replace(location.origin + '/', ''))) {
+  // Serve cached assets (offline page + icon) when available
+  const isOfflineAsset =
+    url.pathname.endsWith('/offline.html') ||
+    url.pathname.endsWith('/lib/icon_tab.webp');
+
+  if (isOfflineAsset) {
     event.respondWith(
-      caches.match(event.request).then((response) => response || fetch(event.request))
+      caches.match(event.request, { ignoreSearch: true }).then((response) => {
+        return (
+          response ||
+          fetch(event.request).then((networkResponse) => {
+            // Update cache in background for next time
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, networkResponse.clone());
+            });
+            return networkResponse;
+          })
+        );
+      })
     );
   }
 });
