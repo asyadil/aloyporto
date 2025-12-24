@@ -17,7 +17,7 @@
     "full stack"
   ],
   "author": "Asyadil Ali Ramdani",
-  "license": "MIT",
+  "license": "BSD 3-Clause",
   "dependencies": {
     "jquery": "^3.7.1"
   },
