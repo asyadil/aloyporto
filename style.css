@@ -1,39 +1,48 @@
 /* ==================== Base Styles ==================== */
 html {
   scroll-behavior: smooth;
-  caret-color: transparent !important; /* Force hide caret everywhere by default */
+  caret-color: transparent !important; /* Hide caret by default everywhere */
 }
 
-/* Show black caret only in contact form inputs */
+/* Show black caret only in contact form input fields when focused */
 #contact .contact-form input[type="text"],
 #contact .contact-form input[type="email"],
 #contact .contact-form textarea {
-  caret-color: #000000 !important; /* Force black caret */
-  color: #ffffff; /* Ensure text is white */
+  caret-color: transparent; /* Hide caret by default */
+  color: #ffffff;
   transition: all 0.3s ease;
+}
+
+/* Show black caret only when input is focused */
+#contact .contact-form input[type="text"]:focus,
+#contact .contact-form input[type="email"]:focus,
+#contact .contact-form textarea:focus {
+  caret-color: #000000 !important; /* Black caret when focused */
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(33, 230, 193, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Selection styling for better visibility */
 #contact .contact-form input[type="text"]::selection,
 #contact .contact-form input[type="email"]::selection,
 #contact .contact-form textarea::selection {
-  background: rgba(33, 230, 193, 0.3); /* Light teal highlight */
+  background: rgba(33, 230, 193, 0.3);
   color: #ffffff;
 }
 
-/* Focus states for better UX */
-#contact .contact-form input[type="text"]:focus,
-#contact .contact-form input[type="email"]:focus,
-#contact .contact-form textarea:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(33, 230, 193, 0.3);
-  background-color: rgba(255, 255, 255, 0.1);
+/* Ensure all other inputs and textareas have no caret */
+input,
+textarea {
+  caret-color: transparent !important;
 }
 
-/* Explicitly hide caret in all other input/textarea elements */
-input:not(#contact .contact-form input),
-textarea:not(#contact .contact-form textarea) {
-  caret-color: transparent !important;
+/* Override for contact form inputs when focused */
+#contact .contact-form input:focus {
+  caret-color: #000000 !important;
+}
+#contact .contact-form textarea:focus {
+  caret-color: #000000 !important;
 }
 
 body {
