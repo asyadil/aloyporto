@@ -430,6 +430,11 @@ nav {
   white-space: nowrap;
 }
 
+@media (min-width: 768px) {
+  .desktop-nav-items {
+    display: flex !important;
+  }
+}
 /* ==================== Mobile Section Heights ==================== */
 @media (max-width: 767px) {
   body {

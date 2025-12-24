@@ -4,6 +4,7 @@ function initializePage() {
   const mainElement = document.querySelector("main");
   const loaderElement = document.querySelector(".loader");
   const navElement = document.querySelector("nav");
+  const isHomePage = !!document.querySelector("section#home");
 
   body.classList.remove("opacity-0");
   body.classList.add("opacity-100");
@@ -19,33 +20,51 @@ function initializePage() {
 
   body.style.backgroundImage = "none";
 
-  if (loaderElement) {
-    loaderElement.style.display = "none";
-  }
-  if (mainElement) {
-    mainElement.style.display = "block";
+  if (loaderElement && mainElement) {
+    if (isHomePage) {
+      loaderElement.style.display = "flex";
+      mainElement.style.display = "none";
+      setTimeout(function () {
+        loaderElement.style.display = "none";
+        mainElement.style.display = "block";
+        if (navElement) {
+          navElement.classList.remove("opacity-0");
+          navElement.classList.add("opacity-100");
+        }
+        const homeText = document.querySelector("#home-text");
+        const aliText = document.querySelector("#ali-text");
+        if (homeText) {
+          homeText.classList.remove("opacity-0");
+          homeText.classList.add("opacity-100");
+        }
+        if (aliText) {
+          aliText.classList.remove("opacity-0");
+          aliText.classList.add("opacity-100");
+        }
+      }, 1000);
+    } else {
+      loaderElement.style.display = "none";
+      mainElement.style.display = "block";
+      setTimeout(function () {
+        if (navElement) {
+          navElement.classList.remove("opacity-0");
+          navElement.classList.add("opacity-100");
+        }
+        const homeText = document.querySelector("#home-text");
+        const aliText = document.querySelector("#ali-text");
+        if (homeText) {
+          homeText.classList.remove("opacity-0");
+          homeText.classList.add("opacity-100");
+        }
+        if (aliText) {
+          aliText.classList.remove("opacity-0");
+          aliText.classList.add("opacity-100");
+        }
+      }, 100);
+    }
   }
 
   body.style.backgroundImage = "";
-
-  setTimeout(function () {
-    if (navElement) {
-      navElement.classList.remove("opacity-0");
-      navElement.classList.add("opacity-100");
-    }
-
-    const homeText = document.querySelector("#home-text");
-    const aliText = document.querySelector("#ali-text");
-
-    if (homeText) {
-      homeText.classList.remove("opacity-0");
-      homeText.classList.add("opacity-100");
-    }
-    if (aliText) {
-      aliText.classList.remove("opacity-0");
-      aliText.classList.add("opacity-100");
-    }
-  }, 100);
 }
 
 window.addEventListener("load", initializePage);
@@ -91,15 +110,16 @@ $(document).ready(function () {
   const aliTextElement = document.querySelector("#ali-text");
 
   // ==================== Immediate Visibility Fix ====================
-  if (navElement) {
+  const isHomePage = !!document.querySelector("section#home");
+  if (navElement && !isHomePage) {
     navElement.classList.remove("opacity-0");
     navElement.classList.add("opacity-100");
   }
-  if (homeTextElement) {
+  if (homeTextElement && !isHomePage) {
     homeTextElement.classList.remove("opacity-0");
     homeTextElement.classList.add("opacity-100");
   }
-  if (aliTextElement) {
+  if (aliTextElement && !isHomePage) {
     aliTextElement.classList.remove("opacity-0");
     aliTextElement.classList.add("opacity-100");
   }
@@ -349,4 +369,55 @@ $(document).ready(function () {
       });
     });
   }
+  
+  function ensureOfflineOverlay() {
+    let overlay = document.getElementById('offline-overlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'offline-overlay';
+      overlay.style.position = 'fixed';
+      overlay.style.inset = '0';
+      overlay.style.backgroundColor = '#202020';
+      overlay.style.zIndex = '10001';
+      overlay.style.display = 'none';
+      overlay.style.alignItems = 'center';
+      overlay.style.justifyContent = 'center';
+      overlay.style.textAlign = 'center';
+      const content = document.createElement('div');
+      content.style.display = 'flex';
+      content.style.flexDirection = 'column';
+      content.style.alignItems = 'center';
+      content.style.gap = '1rem';
+      const img = document.createElement('img');
+      img.src = 'lib/icon_tab.webp';
+      img.alt = 'Connection error';
+      img.style.width = '96px';
+      img.style.height = '96px';
+      const text = document.createElement('p');
+      text.textContent = 'Offline – Periksa koneksi internet Anda';
+      text.style.color = '#ffffff';
+      text.style.fontSize = '1rem';
+      content.appendChild(img);
+      content.appendChild(text);
+      overlay.appendChild(content);
+      document.body.appendChild(overlay);
+    }
+    return overlay;
+  }
+
+  function showOfflineOverlay() {
+    const overlay = ensureOfflineOverlay();
+    overlay.style.display = 'flex';
+  }
+
+  function hideOfflineOverlay() {
+    const overlay = ensureOfflineOverlay();
+    overlay.style.display = 'none';
+  }
+
+  if (!navigator.onLine) {
+    showOfflineOverlay();
+  }
+  window.addEventListener('offline', showOfflineOverlay);
+  window.addEventListener('online', hideOfflineOverlay);
 });
