@@ -5,6 +5,8 @@ function initializePage() {
   const loaderElement = document.querySelector(".loader");
   const navElement = document.querySelector("nav");
   const isHomePage = !!document.querySelector("section#home");
+  const cameFromProjects =
+    document.referrer && /\/projects(\/|$)/.test(document.referrer);
 
   body.classList.remove("opacity-0");
   body.classList.add("opacity-100");
@@ -21,11 +23,10 @@ function initializePage() {
   body.style.backgroundImage = "none";
 
   if (loaderElement && mainElement) {
-    if (isHomePage) {
-      loaderElement.style.display = "flex";
+    if (isHomePage && !cameFromProjects) {
+      loaderElement.style.display = "none";
       mainElement.style.display = "none";
       setTimeout(function () {
-        loaderElement.style.display = "none";
         mainElement.style.display = "block";
         if (navElement) {
           navElement.classList.remove("opacity-0");
