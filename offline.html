@@ -28,15 +28,30 @@
       object-fit: contain;
     }
     h1 {
-      color: #21E6C1;
+      color: #fff;
       font-size: 24px;
       margin: 0 0 10px 0;
       font-weight: 600;
     }
     p {
-      color: #aaa;
-      margin: 0;
+      color: #fff;
+      margin: 0 0 20px 0;
       line-height: 1.5;
+      opacity: 0.8;
+    }
+    .retry-button {
+      background: transparent;
+      color: #fff;
+      border: 1px solid #fff;
+      padding: 10px 24px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    .retry-button:hover {
+      background: rgba(255, 255, 255, 0.1);
     }
   </style>
 </head>
@@ -45,8 +60,20 @@
     <img src="lib/icon_tab.webp" alt="Offline" class="offline-image">
     <h1>You're offline, dude.</h1>
     <p>Check your internet connection and try again.</p>
+    <button class="retry-button" onclick="window.location.reload()">Retry</button>
   </div>
   <script>
+    // Cache the image when service worker is installed
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.ready.then(registration => {
+          return caches.open('offline-assets').then(cache => {
+            return cache.add('lib/icon_tab.webp');
+          });
+        });
+      });
+    }
+
     window.addEventListener('online', function() {
       window.location.reload();
     });
