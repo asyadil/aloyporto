@@ -286,7 +286,7 @@ body.bg2 .mobile-menu a:hover {
   color: #1f0701;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   nav .container {
     justify-content: space-between !important;
     width: 100%;
@@ -431,7 +431,7 @@ nav {
 }
 
 /* ==================== Mobile Section Heights ==================== */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   body {
     overflow-y: scroll;
   }
@@ -512,20 +512,9 @@ nav {
 }
 
 /* ==================== Tablet Adjustments ==================== */
-@media (min-width: 769px) and (max-width: 1024px) {
-  nav {
-    width: fit-content;
-    max-width: calc(100% - 4rem);
-  }
-
-  #projects > div,
-  #contact > div {
-    transform: scale(0.95) !important;
-  }
-}
 
 /* ==================== Project Cards Responsive ==================== */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   /* Arabic.html cards */
   .grid-cols-3 {
     grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
@@ -556,16 +545,7 @@ nav {
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  /* Tablet: 2 columns for arabic.html */
-  section .grid-cols-3 {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-
-  article.project-card {
-    width: 100% !important;
-  }
-}
+/* Tablet uses desktop layout */
 
 /* ==================== Project Cards Theme ==================== */
 .project-btn {
