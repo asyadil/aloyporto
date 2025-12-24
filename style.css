@@ -371,6 +371,37 @@ body.bg2 .mobile-nav-toggle span {
   background-color: #1f0701;
 }
 
+/* Back button theme integration */
+.back-btn {
+  display: inline-block;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  border-width: 1px;
+  transition: all 300ms ease;
+}
+
+body.bg1 .back-btn {
+  color: #071E3D;
+  border-color: #21E6C1;
+  background-color: transparent;
+}
+
+body.bg1 .back-btn:hover {
+  color: #071E3D;
+  background-color: #21E6C1;
+}
+
+body.bg2 .back-btn {
+  color: #1f0701;
+  border-color: #ffc800;
+  background-color: transparent;
+}
+
+body.bg2 .back-btn:hover {
+  color: #1f0701;
+  background-color: #ffc800;
+}
+
 /* Theme switcher background */
 /* Removed block; mobile menu items styled individually above */
 
