@@ -381,7 +381,7 @@ body.bg2 .mobile-nav-toggle span {
 }
 
 body.bg1 .back-btn {
-  color: #071E3D;
+  color: #21E6C1;
   border-color: #21E6C1;
   background-color: transparent;
 }
@@ -392,7 +392,7 @@ body.bg1 .back-btn:hover {
 }
 
 body.bg2 .back-btn {
-  color: #1f0701;
+  color: #ffc800;
   border-color: #ffc800;
   background-color: transparent;
 }
