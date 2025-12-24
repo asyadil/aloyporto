@@ -551,6 +551,20 @@ nav {
 }
 
 /* Tablet uses desktop layout */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Home Projects: 2 columns tablet for 4 cards in 2 rows */
+  #projects .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-rows: 1fr !important;
+    gap: 1rem !important;
+  }
+  #projects article.project-card {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
 
 /* ==================== Project Cards Theme ==================== */
 .project-btn {
