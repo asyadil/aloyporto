@@ -4,7 +4,7 @@ html {
   caret-color: transparent !important; /* Hide caret by default everywhere */
 }
 
-/* Show black caret only in contact form input fields when focused */
+/* Default (light) theme caret colors */
 #contact .contact-form input[type="text"],
 #contact .contact-form input[type="email"],
 #contact .contact-form textarea {
@@ -13,14 +13,31 @@ html {
   transition: all 0.3s ease;
 }
 
-/* Show black caret only when input is focused */
-#contact .contact-form input[type="text"]:focus,
-#contact .contact-form input[type="email"]:focus,
-#contact .contact-form textarea:focus {
-  caret-color: #000000 !important; /* Black caret when focused */
+/* Show caret when focused - light theme */
+[data-theme="light"] #contact .contact-form input[type="text"]:focus,
+[data-theme="light"] #contact .contact-form input[type="email"]:focus,
+[data-theme="light"] #contact .contact-form textarea:focus {
+  caret-color: #071E3D; /* Dark blue for light theme */
   outline: none;
   box-shadow: 0 0 0 2px rgba(33, 230, 193, 0.3);
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark theme caret colors */
+[data-theme="dark"] #contact .contact-form input[type="text"],
+[data-theme="dark"] #contact .contact-form input[type="email"],
+[data-theme="dark"] #contact .contact-form textarea {
+  caret-color: transparent; /* Hide caret by default in dark theme */
+}
+
+/* Show caret when focused - dark theme */
+[data-theme="dark"] #contact .contact-form input[type="text"]:focus,
+[data-theme="dark"] #contact .contact-form input[type="email"]:focus,
+[data-theme="dark"] #contact .contact-form textarea:focus {
+  caret-color: #ffc800; /* Yellow for dark theme */
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 200, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Selection styling for better visibility */
@@ -31,18 +48,18 @@ html {
   color: #ffffff;
 }
 
-/* Ensure all other inputs and textareas have no caret */
-input,
-textarea {
-  caret-color: transparent !important;
+/* Dark theme selection */
+[data-theme="dark"] #contact .contact-form input[type="text"]::selection,
+[data-theme="dark"] #contact .contact-form input[type="email"]::selection,
+[data-theme="dark"] #contact .contact-form textarea::selection {
+  background: rgba(255, 200, 0, 0.3);
+  color: #ffffff;
 }
 
-/* Override for contact form inputs when focused */
-#contact .contact-form input:focus {
-  caret-color: #000000 !important;
-}
-#contact .contact-form textarea:focus {
-  caret-color: #000000 !important;
+/* Ensure all other inputs and textareas have no caret */
+input:not(#contact .contact-form input),
+textarea:not(#contact .contact-form textarea) {
+  caret-color: transparent !important;
 }
 
 body {
