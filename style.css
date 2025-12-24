@@ -131,6 +131,11 @@ body.bg2 .nav-bg {
   cursor: pointer;
 }
 
+.desktop-nav-items .nav_item:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .active {
   color: #071e3d;
   text-decoration: underline;
@@ -149,6 +154,24 @@ body.bg2 .nav-bg {
 }
 
 body.bg2 .change-theme-text {
+  color: #1f0701;
+}
+
+/* Default colors for desktop nav items by theme (non-active) */
+body.bg1 .desktop-nav-items .nav_item:not(.active):not(.active2) {
+  color: #071e3d83;
+}
+
+body.bg2 .desktop-nav-items .nav_item:not(.active):not(.active2) {
+  color: #1f070183;
+}
+
+/* Hover colors for desktop nav items by theme */
+body.bg1 .desktop-nav-items .nav_item:hover {
+  color: #071E3D;
+}
+
+body.bg2 .desktop-nav-items .nav_item:hover {
   color: #1f0701;
 }
 
@@ -232,18 +255,38 @@ body.bg2 .change-theme-text {
 /* Theme-specific backgrounds for mobile menu items */
 body.bg1 .mobile-menu a {
   background-color: #21E6C1;
-  color: #071E3D;
+  color: #071e3d83;
   box-shadow: 0 4px 6px rgba(33, 230, 193, 0.2);
 }
 
 body.bg2 .mobile-menu a {
   background-color: #ffc800;
-  color: #1f0701;
+  color: #1f070183;
   box-shadow: 0 4px 6px rgba(255, 200, 0, 0.2);
 }
 
 .mobile-menu a:hover {
   filter: brightness(110%);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Active colors for mobile menu items by theme */
+body.bg1 .mobile-menu a.active {
+  color: #071E3D;
+}
+
+body.bg2 .mobile-menu a.active2 {
+  color: #1f0701;
+}
+
+/* Hover text colors for mobile menu items by theme */
+body.bg1 .mobile-menu a:hover {
+  color: #071E3D;
+}
+
+body.bg2 .mobile-menu a:hover {
+  color: #1f0701;
 }
 
 @media (max-width: 768px) {
