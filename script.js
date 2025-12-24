@@ -48,8 +48,6 @@ function initializePage() {
   }, 100);
 }
 
-window.addEventListener("load", initializePage);
-window.addEventListener("pageshow", initializePage);
 document.addEventListener("DOMContentLoaded", initializePage);
 
 $(document).ready(function () {
@@ -274,11 +272,11 @@ $(document).ready(function () {
     }
   });
 
-  $(window).on("scroll", function () {
+  window.addEventListener('scroll', function () {
     if (!state.isScrolling) {
       updateActiveNav();
     }
-  });
+  }, { passive: true });
 
   // ==================== Initialization ====================
   $themeToggleDesktop.prop("checked", state.isDarkMode);
