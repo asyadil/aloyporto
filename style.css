@@ -17,7 +17,7 @@ html {
 body.bg1 #contact .contact-form input[type="text"]:focus,
 body.bg1 #contact .contact-form input[type="email"]:focus,
 body.bg1 #contact .contact-form textarea:focus {
-  caret-color: #071E3D; /* Dark blue for light theme */
+  caret: 1px solid #071E3D; /* Thinner caret with better browser support */
   outline: none;
   box-shadow: 0 0 0 2px rgba(33, 230, 193, 0.3);
   background-color: rgba(255, 255, 255, 0.1);
@@ -34,7 +34,7 @@ body.bg2 #contact .contact-form textarea {
 body.bg2 #contact .contact-form input[type="text"]:focus,
 body.bg2 #contact .contact-form input[type="email"]:focus,
 body.bg2 #contact .contact-form textarea:focus {
-  caret-color: #ffc800; /* Yellow for dark theme */
+  caret: 1px solid #ffc800; /* Thinner caret with better browser support */
   outline: none;
   box-shadow: 0 0 0 2px rgba(255, 200, 0, 0.3);
   background-color: rgba(0, 0, 0, 0.2);
